@@ -5,8 +5,8 @@
 \title{<Add Title>}
 \usage{
 calendar(defaultView = c("week", "month", "day"), taskView = FALSE,
-  scheduleView = FALSE, readOnly = TRUE, width = NULL,
-  height = NULL, elementId = NULL)
+  scheduleView = FALSE, readOnly = TRUE, useNav = TRUE,
+  width = NULL, height = NULL, elementId = NULL)
 }
 \description{
 <Add Description>

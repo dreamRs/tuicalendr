@@ -27,7 +27,7 @@ setWeekOptions <- function(cal, startDayOfWeek = NULL,
                            hourEnd = NULL) {
   .widget_options(
     widget = cal,
-    name = "week",
+    name_opt = "week",
     startDayOfWeek = startDayOfWeek, 
     daynames = daynames, 
     narrowWeekend = narrowWeekend, 
@@ -73,7 +73,7 @@ setMonthOptions <- function(cal, startDayOfWeek = NULL,
                            scheduleFilter = NULL) {
   .widget_options(
     widget = cal,
-    name = "month",
+    name_opt = "month",
     startDayOfWeek = startDayOfWeek, 
     daynames = daynames, 
     narrowWeekend = narrowWeekend, 

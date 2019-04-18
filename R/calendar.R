@@ -9,6 +9,7 @@ calendar <- function(defaultView = c("week", "month", "day"),
                      taskView = FALSE,
                      scheduleView = FALSE,
                      readOnly = TRUE, 
+                     useNav = TRUE,
                      width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
@@ -17,29 +18,57 @@ calendar <- function(defaultView = c("week", "month", "day"),
       defaultView = match.arg(defaultView),
       taskView = taskView,
       scheduleView = scheduleView,
-      isReadOnly = readOnly,
-      calendars = list(
-        list(
-          id = '1',
-          name = 'My Calendar',
-          color = '#ffffff',
-          bgColor = '#9e5fff',
-          dragBgColor = '#9e5fff',
-          borderColor = '#9e5fff'
-        )
-      )
+      isReadOnly = readOnly#,
     ),
-    schedules = list()
+    schedules = list(),
+    useNav = isTRUE(useNav)
   )
+  
+  dependencies <- NULL
+  if (isTRUE(useNav)) {
+    dependencies <- list(
+      rmarkdown::html_dependency_jquery(),
+      rmarkdown::html_dependency_bootstrap("default"),
+      rmarkdown::html_dependency_font_awesome()
+    )
+  }
 
   # create widget
   htmlwidgets::createWidget(
-    name = 'calendar',
+    # name = ifelse(isTRUE(useNav), "calendar_nav", "calendar"),
+    name = "calendar",
     x = x,
     width = width,
     height = height,
-    package = 'tui.calendar',
+    dependencies = dependencies,
+    package = "tui.calendar",
     elementId = elementId
+  )
+}
+
+#' @importFrom htmltools tagList tags
+calendar_html <- function(id, style, class, ...) {
+  tagList(
+    tags$div(
+      id = paste0(id, "_menu"),
+      tags$span(
+        id = paste0(id, "_menu_navi"),
+        tags$button(
+          type = "button", class = "btn btn-default btn-sm move-today", `data-action` = "move-today",
+          "Today"
+        ),
+        tags$button(
+          type="button", class = "btn btn-default btn-sm move-day", `data-action` = "move-prev",
+          tags$i(class = "fa fa-chevron-left", `data-action` = "move-prev")
+        ),
+        tags$button(
+          type="button", class = "btn btn-default btn-sm move-day", `data-action` = "move-next",
+          tags$i(class = "fa fa-chevron-right", `data-action` = "move-next")
+        )
+      ),
+      tags$span(id = paste0(id, "_renderRange"), class = "render-range")
+    ),
+    tags$div(id = id, style = style, class = class, ...)
   )
 }
 

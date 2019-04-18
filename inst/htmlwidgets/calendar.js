@@ -18,6 +18,18 @@ HTMLWidgets.widget({
         var schd = x.schedules;
         cal.createSchedules(schd);
         
+        // nav
+        var menu = document.getElementById(el.id + "_menu");
+        
+        var prev = menu.querySelectorAll("button[data-action='move-prev']");
+        prev[0].addEventListener("click", function(e) {
+          cal.prev();
+        }, false);
+        var next = menu.querySelectorAll("button[data-action='move-next']");
+        next[0].addEventListener("click", function(e) {
+          cal.next();
+        }, false);
+        
 
       },
 
