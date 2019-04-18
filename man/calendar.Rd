@@ -4,8 +4,8 @@
 \alias{calendar}
 \title{<Add Title>}
 \usage{
-calendar(default_view = c("week", "month", "day"), width = NULL,
-  height = NULL, elementId = NULL)
+calendar(defaultView = c("week", "month", "day"), taskView = FALSE,
+  width = NULL, height = NULL, elementId = NULL)
 }
 \description{
 <Add Description>
