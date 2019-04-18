@@ -1,7 +1,11 @@
-# (uncomment to add a dependency)
-# dependencies:
-#  - name:
-#    version:
-#    src:
-#    script:
-#    stylesheet:
+dependencies:
+  - name: tui-code-snippet
+    version: 1.5.1
+    src: htmlwidgets/assets
+    script: tui-code-snippet.min.js
+  - name: tui-calendar
+    version: 1.11.1
+    src: htmlwidgets/assets
+    script: tui-calendar.min.js
+    stylesheet: tui-calendar.min.css
+

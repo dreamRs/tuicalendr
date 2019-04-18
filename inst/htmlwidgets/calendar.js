@@ -6,14 +6,15 @@ HTMLWidgets.widget({
 
   factory: function(el, width, height) {
 
-    // TODO: define shared variables for this instance
+    var Calendar = tui.Calendar;
 
     return {
 
       renderValue: function(x) {
+        
+        var options = x.options;
 
-        // TODO: code to render the widget, e.g.
-        el.innerText = x.message;
+        var calendar = new Calendar(el, options);
 
       },
 

@@ -2,20 +2,22 @@
 #'
 #' <Add Description>
 #'
-#' @import htmlwidgets
+#' @importFrom htmlwidgets createWidget shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-calendar <- function(message, width = NULL, height = NULL, elementId = NULL) {
+calendar <- function(default_view = c("week", "month", "day"), width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
-    message = message
+    options = list(
+      defaultView = match.arg(default_view)
+    )
   )
 
   # create widget
   htmlwidgets::createWidget(
     name = 'calendar',
-    x,
+    x = x,
     width = width,
     height = height,
     package = 'tui.calendar',
