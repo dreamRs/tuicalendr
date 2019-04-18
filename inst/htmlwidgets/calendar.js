@@ -19,16 +19,26 @@ HTMLWidgets.widget({
         cal.createSchedules(schd);
         
         // nav
-        var menu = document.getElementById(el.id + "_menu");
-        
-        var prev = menu.querySelectorAll("button[data-action='move-prev']");
-        prev[0].addEventListener("click", function(e) {
-          cal.prev();
-        }, false);
-        var next = menu.querySelectorAll("button[data-action='move-next']");
-        next[0].addEventListener("click", function(e) {
-          cal.next();
-        }, false);
+        if (x.useNav) {
+          var menu = document.getElementById(el.id + "_menu");
+          var renderRange = document.getElementById(el.id + "_renderRange");
+          renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
+          var prev = menu.querySelectorAll("button[data-action='move-prev']");
+          prev[0].addEventListener("click", function(e) {
+            cal.prev();
+            renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
+          }, false);
+          var next = menu.querySelectorAll("button[data-action='move-next']");
+          next[0].addEventListener("click", function(e) {
+            cal.next();
+            renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
+          }, false);
+          var today = menu.querySelectorAll("button[data-action='move-today']");
+          today[0].addEventListener("click", function(e) {
+            cal.today();
+            renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
+          }, false);
+        }
         
 
       },
@@ -42,3 +52,11 @@ HTMLWidgets.widget({
     };
   }
 });
+
+
+function dateToYMD(date) {
+  var d = date.getDate();
+  var m = date.getMonth() + 1; //Month from 0 to 11
+  var y = date.getFullYear();
+  return '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
+}
