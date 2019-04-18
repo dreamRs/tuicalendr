@@ -5,14 +5,31 @@
 #' @importFrom htmlwidgets createWidget shinyWidgetOutput shinyRenderWidget
 #'
 #' @export
-calendar <- function(defaultView = c("week", "month", "day"), taskView = FALSE, width = NULL, height = NULL, elementId = NULL) {
+calendar <- function(defaultView = c("week", "month", "day"), 
+                     taskView = FALSE,
+                     scheduleView = FALSE,
+                     readOnly = TRUE, 
+                     width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
   x = list(
     options = list(
       defaultView = match.arg(defaultView),
-      taskView = taskView
-    )
+      taskView = taskView,
+      scheduleView = scheduleView,
+      isReadOnly = readOnly,
+      calendars = list(
+        list(
+          id = '1',
+          name = 'My Calendar',
+          color = '#ffffff',
+          bgColor = '#9e5fff',
+          dragBgColor = '#9e5fff',
+          borderColor = '#9e5fff'
+        )
+      )
+    ),
+    schedules = list()
   )
 
   # create widget

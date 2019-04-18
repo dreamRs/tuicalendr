@@ -10,7 +10,7 @@ setWeekOptions(cal, startDayOfWeek = NULL, daynames = NULL,
   hourStart = NULL, hourEnd = NULL)
 }
 \arguments{
-\item{cal}{A \code{calndar} object.}
+\item{cal}{A \code{calendar} object.}
 
 \item{startDayOfWeek}{Numeric. The start day of week.}
 

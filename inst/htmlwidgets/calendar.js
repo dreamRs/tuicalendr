@@ -14,7 +14,10 @@ HTMLWidgets.widget({
         
         var options = x.options;
 
-        var calendar = new Calendar(el, options);
+        var cal = new Calendar(el, options);
+        var schd = x.schedules;
+        cal.createSchedules(schd);
+        
 
       },
 

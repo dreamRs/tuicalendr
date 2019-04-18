@@ -3,7 +3,7 @@
 #' 
 #' @description Options for daily, weekly view.
 #'
-#' @param cal A \code{calndar} object.
+#' @param cal A \code{calendar} object.
 #' @param startDayOfWeek Numeric. The start day of week.
 #' @param daynames Vector. The day names in weekly and daily. Default values are 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'.
 #' @param narrowWeekend Logical. Make weekend column narrow(1/2 width).
@@ -45,7 +45,7 @@ setWeekOptions <- function(cal, startDayOfWeek = NULL,
 #' 
 #' @description Options for monthly view.
 #'
-#' @param cal A \code{calndar} object.
+#' @param cal A \code{calendar} object.
 #' @param startDayOfWeek Numeric. The start day of week.
 #' @param daynames Vector. The day names in monthly. Default values are 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'
 #' @param narrowWeekend Logical. Make weekend column narrow(1/2 width).
