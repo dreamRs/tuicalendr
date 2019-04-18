@@ -31,6 +31,8 @@
 #' @param category The schedule type ('milestone', 'task', allday', 'time').
 #'
 #' @export
+#' 
+#' @name add-schedule
 #'
 addSchedule <- function(cal, start, end, title, body = NULL, id = NULL,
                         calendarId = NULL, category = NULL, ...) {
@@ -47,5 +49,22 @@ addSchedule <- function(cal, start, end, title, body = NULL, id = NULL,
       ...
     ))
   )
+}
+
+
+#' @param data a \code{data.frame} with schedule data, columns must have valid shedule name option.
+#'
+#' @export
+#'
+#' @rdname add-schedule
+addScheduleDF <- function(cal, data) {
+  data <- apply(X = data, MARGIN = 1, FUN = as.list)
+  for (i in seq_along(data)) {
+    cal <- .add_schedule(
+      widget = cal,
+      schedule = data[[i]]
+    )
+  }
+  cal
 }
 

@@ -6,7 +6,7 @@ Authors@R: c(
   person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
   person("NHN FE Development Lab", role = c("cph"), comment = "tui-calendar.js library"))
 Description: Htmlwidget for creating interactive calendar.
-License: MIT
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
