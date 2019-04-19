@@ -5,8 +5,8 @@
 \title{Create an interactive calendar}
 \usage{
 calendar(defaultView = c("week", "month", "day"), taskView = FALSE,
-  scheduleView = FALSE, readOnly = TRUE, useNav = TRUE,
-  width = NULL, height = NULL, elementId = NULL)
+  scheduleView = FALSE, useDetailPopup = TRUE, readOnly = TRUE,
+  useNav = TRUE, width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
 \item{defaultView}{Default view of calendar. The default value is 'week',
@@ -17,6 +17,8 @@ The default value is true. If the value is a vector, it can be 'milestone', 'tas
 
 \item{scheduleView}{Show the all day and time grid in weekly, daily view.
 The default value is false. If the value is a vector, it can be 'allday', 'time'.}
+
+\item{useDetailPopup}{Logical. Display a pop-up on click with detailled informations about schedules.}
 
 \item{readOnly}{Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.}
 

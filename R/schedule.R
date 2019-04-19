@@ -54,17 +54,18 @@ addSchedule <- function(cal, start, end, title, body = NULL, id = NULL,
 }
 
 
-#' @param data a \code{data.frame} with schedule data, columns must have valid shedule name option.
+#' @param df a \code{data.frame} with schedule data, columns must have valid shedule name option.
 #'
 #' @export
 #'
 #' @rdname add-schedule
-addScheduleDF <- function(cal, data) {
-  data <- apply(X = data, MARGIN = 1, FUN = as.list)
-  for (i in seq_along(data)) {
+addScheduleDF <- function(cal, df) {
+  df <- as.data.frame(df)
+  df <- apply(X = df, MARGIN = 1, FUN = as.list)
+  for (i in seq_along(df)) {
     cal <- .add_schedule(
       widget = cal,
-      schedule = data[[i]]
+      schedule = df[[i]]
     )
   }
   cal

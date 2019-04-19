@@ -9,7 +9,7 @@
 addSchedule(cal, start, end, title, body = NULL, id = NULL,
   calendarId = NULL, category = NULL, ...)
 
-addScheduleDF(cal, data)
+addScheduleDF(cal, df)
 }
 \arguments{
 \item{cal}{A \code{calendar} object.}
@@ -31,7 +31,7 @@ addScheduleDF(cal, data)
 \item{...}{Additionnal arguments passed to the JavaScript method, 
 see \url{https://nhn.github.io/tui.calendar/latest/Schedule}.}
 
-\item{data}{a \code{data.frame} with schedule data, columns must have valid shedule name option.}
+\item{df}{a \code{data.frame} with schedule data, columns must have valid shedule name option.}
 }
 \description{
 Add schedules

@@ -8,6 +8,7 @@
 #'  The default value is true. If the value is a vector, it can be 'milestone', 'task'.
 #' @param scheduleView Show the all day and time grid in weekly, daily view.
 #'  The default value is false. If the value is a vector, it can be 'allday', 'time'.
+#' @param useDetailPopup Logical. Display a pop-up on click with detailled informations about schedules.
 #' @param readOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
 #' @param useNav Add navigation buttons to got to previous or next period, or return to 'today'.
 #' @param width A numeric input in pixels.
@@ -20,6 +21,7 @@
 calendar <- function(defaultView = c("week", "month", "day"), 
                      taskView = FALSE,
                      scheduleView = FALSE,
+                     useDetailPopup = TRUE,
                      readOnly = TRUE, 
                      useNav = TRUE,
                      width = NULL, height = NULL, elementId = NULL) {
@@ -30,6 +32,7 @@ calendar <- function(defaultView = c("week", "month", "day"),
       defaultView = match.arg(defaultView),
       taskView = taskView,
       scheduleView = scheduleView,
+      useDetailPopup = useDetailPopup,
       isReadOnly = readOnly#,
     ),
     schedules = list(),
