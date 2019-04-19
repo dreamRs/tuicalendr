@@ -28,6 +28,9 @@ addScheduleDF(cal, data)
 
 \item{category}{The schedule type ('milestone', 'task', allday', 'time').}
 
+\item{...}{Additionnal arguments passed to the JavaScript method, 
+see \url{https://nhn.github.io/tui.calendar/latest/Schedule}.}
+
 \item{data}{a \code{data.frame} with schedule data, columns must have valid shedule name option.}
 }
 \description{

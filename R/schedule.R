@@ -29,6 +29,8 @@
 #' @param id An id for the schedule.
 #' @param calendarId An id for the calendar.
 #' @param category The schedule type ('milestone', 'task', allday', 'time').
+#' @param ... Additionnal arguments passed to the JavaScript method, 
+#'  see \url{https://nhn.github.io/tui.calendar/latest/Schedule}.
 #'
 #' @export
 #' 

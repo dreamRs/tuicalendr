@@ -7,20 +7,26 @@ HTMLWidgets.widget({
   factory: function(el, width, height) {
 
     var Calendar = tui.Calendar;
+    var cal;
 
     return {
 
       renderValue: function(x) {
         
+        var menu = document.getElementById(el.id + "_menu");
+        
+        if (!x.useNav) {
+          menu.parentNode.removeChild(menu);
+        }
+        
         var options = x.options;
 
-        var cal = new Calendar(el, options);
+        cal = new Calendar(el, options);
         var schd = x.schedules;
         cal.createSchedules(schd);
         
         // nav
         if (x.useNav) {
-          var menu = document.getElementById(el.id + "_menu");
           var renderRange = document.getElementById(el.id + "_renderRange");
           renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
           var prev = menu.querySelectorAll("button[data-action='move-prev']");
@@ -42,6 +48,10 @@ HTMLWidgets.widget({
         
 
       },
+      
+      getWidget: function(){
+        return cal;
+      },
 
       resize: function(width, height) {
 
@@ -54,9 +64,49 @@ HTMLWidgets.widget({
 });
 
 
+// From Friss tuto (https://github.com/FrissAnalytics/shinyJsTutorials/blob/master/tutorials/tutorial_03.Rmd)
+function get_widget(id){
+  
+  // Get the HTMLWidgets object
+  var htmlWidgetsObj = HTMLWidgets.find("#" + id);
+  
+  // Use the getWidget method we created to get the underlying widget
+  var widgetObj ;
+  
+  if (typeof htmlWidgetsObj != 'undefined') {
+    widgetObj = htmlWidgetsObj.getWidget();
+  }
+
+  return(widgetObj);
+}
+
+
 function dateToYMD(date) {
   var d = date.getDate();
   var m = date.getMonth() + 1; //Month from 0 to 11
   var y = date.getFullYear();
   return '' + y + '-' + (m<=9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d);
 }
+
+
+
+if (HTMLWidgets.shinyMode) {
+  Shiny.addCustomMessageHandler('proxy-tui-calendar-nav',
+    function(obj) {
+      var cal = get_widget(obj.id);
+      if (typeof cal != 'undefined') {
+        if (obj.data.where == 'prev') {
+          cal.prev();
+        }
+        if (obj.data.where == 'next') {
+          cal.next();
+        }
+        if (obj.data.where == 'today') {
+          cal.today();
+        }
+      }
+  });
+}
+
+
+

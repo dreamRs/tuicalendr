@@ -1,6 +1,18 @@
-#' <Add Title>
+#' @title Create an interactive calendar
+#' 
+#' @description Buld interactive calendar with the JavaScript tui-calendar library.
 #'
-#' <Add Description>
+#' @param defaultView Default view of calendar. The default value is 'week',
+#'  other possible values are 'month' and 'day'.
+#' @param taskView Show the milestone and task in weekly, daily view.
+#'  The default value is true. If the value is a vector, it can be 'milestone', 'task'.
+#' @param scheduleView Show the all day and time grid in weekly, daily view.
+#'  The default value is false. If the value is a vector, it can be 'allday', 'time'.
+#' @param readOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
+#' @param useNav Add navigation buttons to got to previous or next period, or return to 'today'.
+#' @param width A numeric input in pixels.
+#' @param height A numeric input in pixels.
+#' @param elementId Use an explicit element ID for the widget.
 #'
 #' @importFrom htmlwidgets createWidget shinyWidgetOutput shinyRenderWidget sizingPolicy
 #'

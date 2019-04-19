@@ -2,12 +2,32 @@
 % Please edit documentation in R/calendar.R
 \name{calendar}
 \alias{calendar}
-\title{<Add Title>}
+\title{Create an interactive calendar}
 \usage{
 calendar(defaultView = c("week", "month", "day"), taskView = FALSE,
   scheduleView = FALSE, readOnly = TRUE, useNav = TRUE,
   width = NULL, height = NULL, elementId = NULL)
 }
+\arguments{
+\item{defaultView}{Default view of calendar. The default value is 'week',
+other possible values are 'month' and 'day'.}
+
+\item{taskView}{Show the milestone and task in weekly, daily view.
+The default value is true. If the value is a vector, it can be 'milestone', 'task'.}
+
+\item{scheduleView}{Show the all day and time grid in weekly, daily view.
+The default value is false. If the value is a vector, it can be 'allday', 'time'.}
+
+\item{readOnly}{Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.}
+
+\item{useNav}{Add navigation buttons to got to previous or next period, or return to 'today'.}
+
+\item{width}{A numeric input in pixels.}
+
+\item{height}{A numeric input in pixels.}
+
+\item{elementId}{Use an explicit element ID for the widget.}
+}
 \description{
-<Add Description>
+Buld interactive calendar with the JavaScript tui-calendar library.
 }

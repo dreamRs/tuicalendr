@@ -13,4 +13,5 @@ RoxygenNote: 6.1.1
 Imports: 
     htmlwidgets,
     htmltools,
-    rmarkdown
+    rmarkdown,
+    shiny
