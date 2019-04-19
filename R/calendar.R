@@ -27,8 +27,6 @@ calendar <- function(defaultView = c("week", "month", "day"),
   dependencies <- NULL
   if (isTRUE(useNav)) {
     dependencies <- list(
-      rmarkdown::html_dependency_jquery(),
-      rmarkdown::html_dependency_bootstrap("default"),
       rmarkdown::html_dependency_font_awesome()
     )
   }
@@ -54,20 +52,21 @@ calendar_html <- function(id, style, class, ...) {
       tags$span(
         id = paste0(id, "_menu_navi"),
         tags$button(
-          type = "button", class = "btn btn-default btn-sm move-today", `data-action` = "move-today",
+          type = "button", class = "btn bttn-simple bttn-sm bttn-primary move-today", `data-action` = "move-today",
           "Today"
         ),
         tags$button(
-          type="button", class = "btn btn-default btn-sm move-day", `data-action` = "move-prev",
+          type="button", class = "btn bttn-simple bttn-sm bttn-primary move-day", `data-action` = "move-prev",
           tags$i(class = "fa fa-chevron-left", `data-action` = "move-prev")
         ),
         tags$button(
-          type="button", class = "btn btn-default btn-sm move-day", `data-action` = "move-next",
+          type="button", class = "btn bttn-simple bttn-sm bttn-primary move-day", `data-action` = "move-next",
           tags$i(class = "fa fa-chevron-right", `data-action` = "move-next")
         )
       ),
       tags$span(id = paste0(id, "_renderRange"), class = "render-range")
     ),
+    tags$br(),
     tags$div(id = id, style = style, class = class, ...)
   )
 }

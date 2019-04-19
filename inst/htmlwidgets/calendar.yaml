@@ -8,4 +8,7 @@ dependencies:
     src: htmlwidgets/assets
     script: tui-calendar.min.js
     stylesheet: tui-calendar.min.css
-
+  - name: bttn
+    version: 0.2.4
+    src: htmlwidgets/assets
+    stylesheet: bttn.min.css
