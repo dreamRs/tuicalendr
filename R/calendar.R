@@ -2,7 +2,7 @@
 #'
 #' <Add Description>
 #'
-#' @importFrom htmlwidgets createWidget shinyWidgetOutput shinyRenderWidget
+#' @importFrom htmlwidgets createWidget shinyWidgetOutput shinyRenderWidget sizingPolicy
 #'
 #' @export
 calendar <- function(defaultView = c("week", "month", "day"), 
@@ -40,7 +40,19 @@ calendar <- function(defaultView = c("week", "month", "day"),
     height = height,
     dependencies = dependencies,
     package = "tui.calendar",
-    elementId = elementId
+    elementId = elementId,
+    sizingPolicy = htmlwidgets::sizingPolicy(
+      defaultWidth = "100%",
+      defaultHeight = "100%",
+      viewer.defaultHeight = "100%",
+      viewer.defaultWidth = "100%",
+      knitr.figure = FALSE,
+      knitr.defaultWidth = "100%",
+      knitr.defaultHeight = "800px",
+      browser.fill = TRUE,
+      viewer.suppress = FALSE,
+      browser.external = TRUE
+    )
   )
 }
 
@@ -52,15 +64,15 @@ calendar_html <- function(id, style, class, ...) {
       tags$span(
         id = paste0(id, "_menu_navi"),
         tags$button(
-          type = "button", class = "btn bttn-simple bttn-sm bttn-primary move-today", `data-action` = "move-today",
+          type = "button", class = "btn bttn-jelly bttn-sm bttn-primary bttn-no-outline move-today", `data-action` = "move-today",
           "Today"
         ),
         tags$button(
-          type="button", class = "btn bttn-simple bttn-sm bttn-primary move-day", `data-action` = "move-prev",
+          type="button", class = "btn bttn-jelly bttn-sm bttn-primary bttn-no-outline move-day", `data-action` = "move-prev",
           tags$i(class = "fa fa-chevron-left", `data-action` = "move-prev")
         ),
         tags$button(
-          type="button", class = "btn bttn-simple bttn-sm bttn-primary move-day", `data-action` = "move-next",
+          type="button", class = "btn bttn-jelly bttn-sm bttn-primary bttn-no-outline move-day", `data-action` = "move-next",
           tags$i(class = "fa fa-chevron-right", `data-action` = "move-next")
         )
       ),
