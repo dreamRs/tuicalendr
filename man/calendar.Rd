@@ -6,7 +6,7 @@
 \usage{
 calendar(defaultView = c("week", "month", "day"), taskView = FALSE,
   scheduleView = FALSE, useDetailPopup = TRUE, readOnly = TRUE,
-  useNav = TRUE, width = NULL, height = NULL, elementId = NULL)
+  useNav = FALSE, width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{
 \item{defaultView}{Default view of calendar. The default value is 'week',

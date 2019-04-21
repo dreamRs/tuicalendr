@@ -60,7 +60,9 @@ calendarProxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) 
 
 
 
-#' Navigate into a calendar
+#' @title Navigate into a calendar with Proxy
+#' 
+#' @description Those functions allow to navigate in the calendar from the server in a Shiny application.
 #'
 #' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
 #'
@@ -104,3 +106,35 @@ cal_proxy_today <- function(proxy) {
     where = "today"
   )
 }
+
+
+
+
+
+#' @title Change calendar view with Proxy
+#' 
+#' @description This function allow to change the calendar view from the server in a Shiny application.
+#'
+#' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
+#' @param view The new view for the calendar: "day", "week" or "month".
+#'
+#' @export
+#'
+#' @examples
+cal_proxy_view <- function(proxy, view) {
+  if (is.character(proxy)) {
+    proxy <- calendarProxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "view",
+    view = view
+  )
+}
+
+
+
+
+
+
+

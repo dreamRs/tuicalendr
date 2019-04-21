@@ -23,7 +23,7 @@ calendar <- function(defaultView = c("week", "month", "day"),
                      scheduleView = FALSE,
                      useDetailPopup = TRUE,
                      readOnly = TRUE, 
-                     useNav = TRUE,
+                     useNav = FALSE,
                      width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
