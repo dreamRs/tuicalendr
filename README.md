@@ -60,3 +60,47 @@ calendar(defaultView = "week", taskView = TRUE, scheduleView = c("time", "allday
 ```
 ![](man/figures/example-week.png)
 
+
+Month calendar:
+
+```r
+calendar(defaultView = "month", taskView = TRUE, scheduleView = c("time", "allday"), useNav = TRUE) %>% 
+  setCalendarsProps(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>% 
+  setCalendarsProps(id = "hobbies", name = "Hobbies", color = "#FFF", bgColor = "#377EB8") %>% 
+  setCalendarsProps(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>% 
+  addSchedule(
+    calendarId = "courses",
+    title = "R - introduction", 
+    body = "What is R?",
+    start = sprintf("%s 08:00:00", Sys.Date() - 1),
+    end = sprintf("%s 12:30:00", Sys.Date() - 1),
+    category = "time"
+  ) %>% 
+  addSchedule(
+    calendarId = "courses",
+    title = "R - visualisation", 
+    body = "With ggplot2",
+    start = sprintf("%s 13:30:00", Sys.Date() - 1),
+    end = sprintf("%s 18:00:00", Sys.Date() - 1),
+    category = "time"
+  ) %>% 
+  addSchedule(
+    calendarId = "hobbies",
+    title = "Read The Expanse", 
+    body = "Vol. 5 : Nemesis Games",
+    start = Sys.Date(),
+    end = Sys.Date() + 4,
+    category = "allday"
+  ) %>% 
+  addSchedule(
+    calendarId = "social",
+    title = "Lunch", 
+    body = "With Fanny",
+    start = sprintf("%s 12:00:00", Sys.Date() + 7),
+    end = sprintf("%s 14:00:00", Sys.Date() + 7),
+    category = "time"
+  )
+```
+![](man/figures/example-month.png)
+
+
