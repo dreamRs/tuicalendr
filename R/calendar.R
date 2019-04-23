@@ -20,7 +20,7 @@
 #' @export
 calendar <- function(defaultView = c("week", "month", "day"), 
                      taskView = FALSE,
-                     scheduleView = FALSE,
+                     scheduleView = TRUE,
                      useDetailPopup = TRUE,
                      readOnly = TRUE, 
                      useNav = FALSE,
