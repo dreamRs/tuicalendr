@@ -26,7 +26,11 @@ server <- function(input, output, session) {
       )
   })
   
-  observeEvent(input$view, cal_proxy_view("my_calendar", input$view), ignoreInit = TRUE)
+  observeEvent(
+    input$view, 
+    cal_proxy_view("my_calendar", input$view), 
+    ignoreInit = TRUE
+  )
   
 }
 

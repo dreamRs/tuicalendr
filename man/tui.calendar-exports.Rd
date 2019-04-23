@@ -3,6 +3,7 @@
 \name{tui.calendar-exports}
 \alias{tui.calendar-exports}
 \alias{\%>\%}
+\alias{JS}
 \title{tui.calendar exported operators and S3 methods}
 \description{
 The following functions are imported and then re-exported

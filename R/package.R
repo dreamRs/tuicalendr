@@ -23,3 +23,9 @@ NULL
 #' @export
 #' @rdname tui.calendar-exports
 NULL
+
+#' @importFrom htmlwidgets JS
+#' @name JS
+#' @export
+#' @rdname tui.calendar-exports
+NULL

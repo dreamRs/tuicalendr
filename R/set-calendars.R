@@ -29,6 +29,7 @@ setCalendarsProps <- function(cal, id, name, color, bgColor, borderColor = bgCol
     calendar = list(
       id = id,
       name = name,
+      color = color,
       bgColor = bgColor,
       borderColor = borderColor
     )

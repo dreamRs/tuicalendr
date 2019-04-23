@@ -5,7 +5,7 @@
 \title{Create an interactive calendar}
 \usage{
 calendar(defaultView = c("week", "month", "day"), taskView = FALSE,
-  scheduleView = FALSE, useDetailPopup = TRUE, readOnly = TRUE,
+  scheduleView = TRUE, useDetailPopup = TRUE, readOnly = TRUE,
   useNav = FALSE, width = NULL, height = NULL, elementId = NULL)
 }
 \arguments{

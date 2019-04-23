@@ -70,6 +70,41 @@ calendarProxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) 
 #' 
 #' @name proxy-navigate
 #'
+#' @examples 
+#' if (interactive()) {
+#'   library(shiny)
+#'   
+#'   ui <- fluidPage(
+#'     tags$h2("Navigate in calendar with actionButtons"),
+#'     actionButton(
+#'       inputId = "prev", 
+#'       label = "Previous"
+#'     ),
+#'     actionButton(
+#'       inputId = "next_", 
+#'       label = "Next"
+#'     ),
+#'     actionButton(
+#'       inputId = "today", 
+#'       label = "Today"
+#'     ),
+#'     calendarOutput(outputId = "my_calendar")
+#'   )
+#'   
+#'   server <- function(input, output, session) {
+#'     
+#'     output$my_calendar <- renderCalendar({
+#'       calendar(defaultView = "month", useNav = FALSE)
+#'     })
+#'     
+#'     observeEvent(input$prev, cal_proxy_prev("my_calendar"))
+#'     observeEvent(input$next_, cal_proxy_next("my_calendar"))
+#'     observeEvent(input$today, cal_proxy_today("my_calendar"))
+#'     
+#'   }
+#'   
+#'   shinyApp(ui, server)
+#' }
 cal_proxy_next <- function(proxy) {
   if (is.character(proxy)) {
     proxy <- calendarProxy(proxy)
@@ -121,6 +156,42 @@ cal_proxy_today <- function(proxy) {
 #' @export
 #'
 #' @examples
+#' if (interactive()) {
+#'   library(shiny)
+#'   
+#'   ui <- fluidPage(
+#'     tags$h2("Navigate in calendar with actionButtons"),
+#'     radioButtons(
+#'       inputId = "view", 
+#'       label = "Change view:", 
+#'       choices = c("day", "week", "month"), 
+#'       inline = TRUE
+#'     ),
+#'     calendarOutput(outputId = "my_calendar")
+#'   )
+#'   
+#'   server <- function(input, output, session) {
+#'     
+#'     output$my_calendar <- renderCalendar({
+#'       calendar(defaultView = "day", scheduleView = "allday") %>% 
+#'         addSchedule(
+#'           title = "Today planning", 
+#'           start = Sys.Date(),
+#'           end = Sys.Date(),
+#'           category = "allday"
+#'         )
+#'     })
+#'     
+#'     observeEvent(
+#'       input$view, 
+#'       cal_proxy_view("my_calendar", input$view), 
+#'       ignoreInit = TRUE
+#'     )
+#'     
+#'   }
+#'   
+#'   shinyApp(ui, server)
+#' }
 cal_proxy_view <- function(proxy, view) {
   if (is.character(proxy)) {
     proxy <- calendarProxy(proxy)
