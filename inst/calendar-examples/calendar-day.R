@@ -21,8 +21,8 @@ calendarProps <- data.frame(
   id = c("1", "2", "3"), 
   name = c("TODO", "Meetings", "Tasks"),
   color = c("#FFF", "#FFF", "#000"), 
-  bgColor = c("#58ACFA", "#FE642E", "#D8F6CE"),
-  borderColor = c("#58ACFA", "#FF8000", "#81F781")
+  bgColor = c("#E41A1C", "#377EB8", "#4DAF4A"),
+  borderColor = c("#a90000", "#005288", "#0a7f1c")
 )
 
 
