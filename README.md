@@ -1,6 +1,6 @@
 # tuicalendr
 
-> Create interactive calendar
+> Htmlwidget to create interactive calendar with JavaScript library [tui-calendar](https://github.com/nhn/tui.calendar)
 
 [![Travis build status](https://travis-ci.org/dreamRs/tuicalendr.svg?branch=master)](https://travis-ci.org/dreamRs/tuicalendr)
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
@@ -17,10 +17,46 @@ remotes::install_github("dreamRs/tuicalendr")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Weekly calendar:
 
 ``` r
 library(tuicalendr)
-## basic example code
+calendar(defaultView = "week", taskView = TRUE, scheduleView = c("time", "allday")) %>% 
+  setCalendarsProps(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>% 
+  setCalendarsProps(id = "hobbies", name = "Hobbies", color = "#FFF", bgColor = "#377EB8") %>% 
+  setCalendarsProps(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>% 
+  addSchedule(
+    calendarId = "courses",
+    title = "R - introduction", 
+    body = "What is R?",
+    start = sprintf("%s 08:00:00", Sys.Date() - 1),
+    end = sprintf("%s 12:30:00", Sys.Date() - 1),
+    category = "time"
+  ) %>% 
+  addSchedule(
+    calendarId = "courses",
+    title = "R - visualisation", 
+    body = "With ggplot2",
+    start = sprintf("%s 13:30:00", Sys.Date() - 1),
+    end = sprintf("%s 18:00:00", Sys.Date() - 1),
+    category = "time"
+  ) %>% 
+  addSchedule(
+    calendarId = "hobbies",
+    title = "Read The Expanse", 
+    body = "Vol. 5 : Nemesis Games",
+    start = Sys.Date(),
+    end = Sys.Date(),
+    category = "allday"
+  ) %>% 
+  addSchedule(
+    calendarId = "social",
+    title = "Lunch", 
+    body = "With Fanny",
+    start = sprintf("%s 12:00:00", Sys.Date() + 1),
+    end = sprintf("%s 14:00:00", Sys.Date() + 1),
+    category = "time"
+  )
 ```
+![](man/figures/example-week.png)
 
