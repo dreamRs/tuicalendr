@@ -11,7 +11,7 @@
 
 # Packages ----------------------------------------------------------------
 
-library(tui.calendar)
+library(tuicalendr)
 
 
 

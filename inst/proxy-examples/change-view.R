@@ -1,7 +1,7 @@
 
 
 library(shiny)
-library(tui.calendar)
+library(tuicalendr)
 
 ui <- fluidPage(
   tags$h2("Navigate in calendar with actionButtons"),

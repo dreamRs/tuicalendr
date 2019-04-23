@@ -54,7 +54,7 @@ calendar <- function(defaultView = c("week", "month", "day"),
     width = width,
     height = height,
     dependencies = dependencies,
-    package = "tui.calendar",
+    package = "tuicalendr",
     elementId = elementId,
     sizingPolicy = htmlwidgets::sizingPolicy(
       defaultWidth = "100%",
@@ -116,7 +116,7 @@ calendar_html <- function(id, style, class, ...) {
 #'
 #' @export
 calendarOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'calendar', width, height, package = 'tui.calendar')
+  htmlwidgets::shinyWidgetOutput(outputId, 'calendar', width, height, package = 'tuicalendr')
 }
 
 #' @rdname calendar-shiny
