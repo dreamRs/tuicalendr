@@ -9,8 +9,11 @@
 #' @param scheduleView Show the all day and time grid in weekly, daily view.
 #'  The default value is false. If the value is a vector, it can be 'allday', 'time'.
 #' @param useDetailPopup Logical. Display a pop-up on click with detailled informations about schedules.
+#' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
 #' @param readOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
 #' @param useNav Add navigation buttons to got to previous or next period, or return to 'today'.
+#' @param usageStatistics Toast UI collect statistics on the use of open source via Google Analytics, 
+#'  set to \code{TRUE} to share your usage, default to \code{FALSE}.
 #' @param width A numeric input in pixels.
 #' @param height A numeric input in pixels.
 #' @param elementId Use an explicit element ID for the widget.
@@ -22,8 +25,10 @@ calendar <- function(defaultView = c("week", "month", "day"),
                      taskView = FALSE,
                      scheduleView = TRUE,
                      useDetailPopup = TRUE,
+                     useCreationPopup = FALSE,
                      readOnly = TRUE, 
                      useNav = FALSE,
+                     usageStatistics = FALSE,
                      width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
@@ -33,7 +38,9 @@ calendar <- function(defaultView = c("week", "month", "day"),
       taskView = taskView,
       scheduleView = scheduleView,
       useDetailPopup = useDetailPopup,
-      isReadOnly = readOnly#,
+      useCreationPopup = useCreationPopup,
+      isReadOnly = readOnly,
+      usageStatistics = usageStatistics
     ),
     schedules = list(),
     useNav = isTRUE(useNav)

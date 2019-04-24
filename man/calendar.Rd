@@ -5,8 +5,10 @@
 \title{Create an interactive calendar}
 \usage{
 calendar(defaultView = c("week", "month", "day"), taskView = FALSE,
-  scheduleView = TRUE, useDetailPopup = TRUE, readOnly = TRUE,
-  useNav = FALSE, width = NULL, height = NULL, elementId = NULL)
+  scheduleView = TRUE, useDetailPopup = TRUE,
+  useCreationPopup = FALSE, readOnly = TRUE, useNav = FALSE,
+  usageStatistics = FALSE, width = NULL, height = NULL,
+  elementId = NULL)
 }
 \arguments{
 \item{defaultView}{Default view of calendar. The default value is 'week',
@@ -20,9 +22,14 @@ The default value is false. If the value is a vector, it can be 'allday', 'time'
 
 \item{useDetailPopup}{Logical. Display a pop-up on click with detailled informations about schedules.}
 
+\item{useCreationPopup}{Logical. Allow user to create schedules with a pop-up.}
+
 \item{readOnly}{Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.}
 
 \item{useNav}{Add navigation buttons to got to previous or next period, or return to 'today'.}
+
+\item{usageStatistics}{Toast UI collect statistics on the use of open source via Google Analytics, 
+set to \code{TRUE} to share your usage, default to \code{FALSE}.}
 
 \item{width}{A numeric input in pixels.}
 
