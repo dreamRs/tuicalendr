@@ -205,7 +205,42 @@ cal_proxy_view <- function(proxy, view) {
 
 
 
-
+#' @title Add schedule with Proxy
+#' 
+#' @description This function allow to add schedule(s) into a calendar within the server in a Shiny application.
+#'
+#' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
+#' @param start The start time.
+#' @param end The end time. 
+#' @param title The schedule title.
+#' @param body The schedule body text which is text/plain.
+#' @param id An id for the schedule.
+#' @param calendarId An id for the calendar.
+#' @param category The schedule type ('milestone', 'task', allday', 'time').
+#' @param ... Additionnal arguments passed to the JavaScript method,
+#'
+#' @export
+#'
+cal_proxy_schedule <- function(proxy, start, end, title, body = NULL, id = NULL,
+                               calendarId = NULL, category = NULL, ...) {
+  if (is.character(proxy)) {
+    proxy <- calendarProxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "schedule",
+    schedule = list(dropNulls(list(
+      id = id, 
+      calendarId = calendarId,
+      title = title,
+      body = body,
+      start = start,
+      end = end,
+      category = category,
+      ...
+    )))
+  )
+}
 
 
 

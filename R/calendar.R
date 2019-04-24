@@ -115,7 +115,7 @@ calendar_html <- function(id, style, class, ...) {
 #' @name calendar-shiny
 #'
 #' @export
-calendarOutput <- function(outputId, width = '100%', height = '400px'){
+calendarOutput <- function(outputId, width = '100%', height = '600px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'calendar', width, height, package = 'tuicalendr')
 }
 

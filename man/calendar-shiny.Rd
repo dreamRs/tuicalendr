@@ -6,7 +6,7 @@
 \alias{renderCalendar}
 \title{Shiny bindings for calendar}
 \usage{
-calendarOutput(outputId, width = "100\%", height = "400px")
+calendarOutput(outputId, width = "100\%", height = "600px")
 
 renderCalendar(expr, env = parent.frame(), quoted = FALSE)
 }

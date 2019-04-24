@@ -113,6 +113,13 @@ if (HTMLWidgets.shinyMode) {
         cal.changeView(obj.data.view, true);
       }
   });
+  Shiny.addCustomMessageHandler('proxy-tui-calendar-schedule',
+    function(obj) {
+      var cal = get_widget(obj.id);
+      if (typeof cal != 'undefined') {
+        cal.createSchedules(obj.data.schedule);
+      }
+  });
 }
 
 
