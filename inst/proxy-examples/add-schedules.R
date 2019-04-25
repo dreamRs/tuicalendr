@@ -9,8 +9,12 @@ ui <- fluidPage(
     inputId = "add", 
     label = "Add random schedule"
   ),
-  calendarOutput(outputId = "my_calendar"),
-  verbatimTextOutput(outputId = "res")
+  actionButton(
+    inputId = "clear", 
+    label = "Clear all",
+    class = "btn-danger"
+  ),
+  calendarOutput(outputId = "my_calendar")
 )
 
 server <- function(input, output, session) {
@@ -40,9 +44,7 @@ server <- function(input, output, session) {
       )
   })
   
-  output$res <- renderPrint({
-    input$my_calendar_schedules
-  })
+  observeEvent(input$clear, cal_proxy_clear("my_calendar"))
 
 }
 

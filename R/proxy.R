@@ -255,4 +255,22 @@ cal_proxy_schedule <- function(proxy, start = NULL, end = NULL,
 }
 
 
-
+#' @title Clear calendar with Proxy
+#' 
+#' @description This function allow to delete all schedules and clear view.
+#'
+#' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
+#' @param immediately Render it immediately. Or wait, if you want to add schedule after that for example.
+#'
+#' @export
+#'
+cal_proxy_clear <- function(proxy, immediately = TRUE) {
+  if (is.character(proxy)) {
+    proxy <- calendarProxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "clear",
+    immediately = immediately
+  )
+}
