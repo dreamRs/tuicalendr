@@ -3,11 +3,25 @@ dependencies:
     version: 1.5.1
     src: htmlwidgets/assets
     script: tui-code-snippet.min.js
+  - name: tui-time-picker
+    version: 1.5.2
+    src: htmlwidgets/assets
+    script: tui-time-picker.min.js
+    stylesheet: tui-time-picker.css
+  - name: tui-date-picker
+    version: 3.3.3
+    src: htmlwidgets/assets
+    script: tui-date-picker.min.js
+    stylesheet: tui-date-picker.css
   - name: tui-calendar
     version: 1.12.0
     src: htmlwidgets/assets
     script: tui-calendar.min.js
     stylesheet: tui-calendar.min.css
+  - name: moment
+    version: 2.24.0
+    src: htmlwidgets/assets
+    script: moment.min.js
   - name: bttn
     version: 0.2.4
     src: htmlwidgets/assets

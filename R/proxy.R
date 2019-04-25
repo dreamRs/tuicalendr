@@ -217,20 +217,27 @@ cal_proxy_view <- function(proxy, view) {
 #' @param id An id for the schedule.
 #' @param calendarId An id for the calendar.
 #' @param category The schedule type ('milestone', 'task', allday', 'time').
-#' @param ... Additionnal arguments passed to the JavaScript method,
+#' @param ... Additionnal arguments passed to the JavaScript method.
+#' @param .list A \code{list} with same information as above, useful with \code{input$<outputId>_add_schedule}.
 #'
 #' @export
 #'
-cal_proxy_schedule <- function(proxy, start, end, title, body = NULL, id = NULL,
-                               calendarId = NULL, category = NULL, ...) {
+cal_proxy_schedule <- function(proxy, start = NULL, end = NULL, 
+                               title = NULL, body = NULL, id = NULL,
+                               calendarId = NULL, category = NULL, ...,
+                               .list = NULL) {
   if (is.character(proxy)) {
     proxy <- calendarProxy(proxy)
   }
-  .call_proxy(
-    proxy = proxy,
-    name = "schedule",
-    schedule = list(dropNulls(list(
-      id = id, 
+  if (is.null(id)) {
+    id <- paste0("shd_", sample.int(1e6, 1))
+  }
+  if (!is.null(.list)) {
+    .list$id <- id
+    schedule <- list(.list)
+  } else {
+    schedule <- list(dropNulls(list(
+      id = id,
       calendarId = calendarId,
       title = title,
       body = body,
@@ -239,6 +246,11 @@ cal_proxy_schedule <- function(proxy, start, end, title, body = NULL, id = NULL,
       category = category,
       ...
     )))
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "schedule",
+    schedule = schedule
   )
 }
 

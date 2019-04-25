@@ -4,8 +4,9 @@
 \alias{cal_proxy_schedule}
 \title{Add schedule with Proxy}
 \usage{
-cal_proxy_schedule(proxy, start, end, title, body = NULL, id = NULL,
-  calendarId = NULL, category = NULL, ...)
+cal_proxy_schedule(proxy, start = NULL, end = NULL, title = NULL,
+  body = NULL, id = NULL, calendarId = NULL, category = NULL, ...,
+  .list = NULL)
 }
 \arguments{
 \item{proxy}{A \code{\link{calendarProxy}} \code{htmlwidget} object.}
@@ -24,7 +25,9 @@ cal_proxy_schedule(proxy, start, end, title, body = NULL, id = NULL,
 
 \item{category}{The schedule type ('milestone', 'task', allday', 'time').}
 
-\item{...}{Additionnal arguments passed to the JavaScript method,}
+\item{...}{Additionnal arguments passed to the JavaScript method.}
+
+\item{.list}{A \code{list} with same information as above, useful with \code{input$<outputId>_add_schedule}.}
 }
 \description{
 This function allow to add schedule(s) into a calendar within the server in a Shiny application.

@@ -9,7 +9,8 @@ ui <- fluidPage(
     inputId = "add", 
     label = "Add random schedule"
   ),
-  calendarOutput(outputId = "my_calendar")
+  calendarOutput(outputId = "my_calendar"),
+  verbatimTextOutput(outputId = "res")
 )
 
 server <- function(input, output, session) {
@@ -37,6 +38,10 @@ server <- function(input, output, session) {
         end = my_date,
         category = "allday"
       )
+  })
+  
+  output$res <- renderPrint({
+    input$my_calendar_schedules
   })
 
 }

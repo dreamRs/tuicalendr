@@ -45,6 +45,29 @@ HTMLWidgets.widget({
             renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
           }, false);
         }
+
+        
+        // shiny input
+        if (HTMLWidgets.shinyMode) {
+          cal.on('beforeCreateSchedule', function(event) {
+            console.log(event);
+            Shiny.setInputValue(el.id + '_add_schedule', {
+              title: event.title,
+              location: event.location,
+              start: moment(event.start._date).format(),
+              end: moment(event.end._date).format(),
+              isAllDay: event.isAllDay,
+              category: event.isAllDay ? 'allday' : 'time',
+              calendarId: event.calendarId,
+            });
+          });
+          cal.on('afterRenderSchedule', function(event) {
+              //var shedule = cal.getSchedule();
+              var schedule = event.schedule;
+              var element = cal.getSchedule(schedule.id, schedule.calendarId);
+              Shiny.setInputValue(el.id + '_schedules', element);
+          });
+        }
         
 
       },
