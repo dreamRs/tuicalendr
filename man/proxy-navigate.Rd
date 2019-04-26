@@ -5,6 +5,7 @@
 \alias{cal_proxy_next}
 \alias{cal_proxy_prev}
 \alias{cal_proxy_today}
+\alias{cal_proxy_date}
 \title{Navigate into a calendar with Proxy}
 \usage{
 cal_proxy_next(proxy)
@@ -12,9 +13,13 @@ cal_proxy_next(proxy)
 cal_proxy_prev(proxy)
 
 cal_proxy_today(proxy)
+
+cal_proxy_date(proxy, date)
 }
 \arguments{
 \item{proxy}{A \code{\link{calendarProxy}} \code{htmlwidget} object.}
+
+\item{date}{A specific date to navigate to.}
 }
 \description{
 Those functions allow to navigate in the calendar from the server in a Shiny application.

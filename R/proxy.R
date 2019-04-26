@@ -65,6 +65,7 @@ calendarProxy <- function(shinyId, session = shiny::getDefaultReactiveDomain()) 
 #' @description Those functions allow to navigate in the calendar from the server in a Shiny application.
 #'
 #' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
+#' @param date A specific date to navigate to.
 #'
 #' @export
 #' 
@@ -142,7 +143,19 @@ cal_proxy_today <- function(proxy) {
   )
 }
 
-
+#' @export
+#' @rdname proxy-navigate
+cal_proxy_date <- function(proxy, date) {
+  if (is.character(proxy)) {
+    proxy <- calendarProxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "nav",
+    where = "date",
+    date = date
+  )
+}
 
 
 

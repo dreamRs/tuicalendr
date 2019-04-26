@@ -49,6 +49,11 @@ HTMLWidgets.widget({
         
         // shiny input
         if (HTMLWidgets.shinyMode) {
+          Shiny.setInputValue(el.id + '_dates', {
+            current: moment(cal.getDate()._date).format(),
+            start: moment(cal.getDateRangeStart()._date).format(),
+            end: moment(cal.getDateRangeEnd()._date).format()
+          });
           cal.on('beforeCreateSchedule', function(event) {
             console.log(event);
             Shiny.setInputValue(el.id + '_add_schedule', {
@@ -127,6 +132,14 @@ if (HTMLWidgets.shinyMode) {
         if (obj.data.where == 'today') {
           cal.today();
         }
+        if (obj.data.where == 'date') {
+          cal.setDate(obj.data.date);
+        }
+        Shiny.setInputValue(obj.id + '_dates', {
+          current: moment(cal.getDate()._date).format(),
+          start: moment(cal.getDateRangeStart()._date).format(),
+          end: moment(cal.getDateRangeEnd()._date).format()
+        });
       }
   });
   Shiny.addCustomMessageHandler('proxy-tui-calendar-view',
