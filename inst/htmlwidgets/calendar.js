@@ -177,6 +177,13 @@ if (HTMLWidgets.shinyMode) {
         cal.clear(obj.data.immediately);
       }
   });
+  Shiny.addCustomMessageHandler('proxy-tui-calendar-options',
+    function(obj) {
+      var cal = get_widget(obj.id);
+      if (typeof cal != 'undefined') {
+        cal.setOptions(obj.data.options);
+      }
+  });
 }
 
 

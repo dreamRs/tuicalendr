@@ -335,3 +335,27 @@ cal_proxy_clear <- function(proxy, immediately = TRUE) {
     immediately = immediately
   )
 }
+
+
+#' @title Set calendar's options with Proxy
+#' 
+#' @description This function allow to set options for a calendar.
+#'
+#' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
+#' @param ... Options for the calendar, you can use arguments from \code{\link{calendar}},
+#'  \code{\link{setMonthOptions}} (under the form \code{month = list(...)}), 
+#'  \code{\link{setWeekOptions}} (under the form \code{week = list(...)})
+#'
+#' @export
+#'
+cal_proxy_options <- function(proxy, ...) {
+  if (is.character(proxy)) {
+    proxy <- calendarProxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "options",
+    options = list(...)
+  )
+}
+
