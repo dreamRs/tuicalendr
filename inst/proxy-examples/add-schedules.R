@@ -5,14 +5,35 @@ library(tuicalendr)
 
 ui <- fluidPage(
   tags$h2("Add schedule(s) into calendar with proxy"),
-  actionButton(
-    inputId = "add", 
-    label = "Add random schedule"
-  ),
-  actionButton(
-    inputId = "clear", 
-    label = "Clear all",
-    class = "btn-danger"
+  fluidRow(
+    column(
+      width = 4,
+      actionButton(
+        inputId = "add", 
+        label = "Add random schedule"
+      ),
+      actionButton(
+        inputId = "clear", 
+        label = "Clear all",
+        class = "btn-danger"
+      )
+    ),
+    column(
+      width = 4,
+      numericInput(
+        inputId = "id", 
+        label = "Delete specific schedule: e.g. 1, 2, 3, ...", 
+        value = 1
+      )
+    ),
+    column(
+      width = 4,
+      actionButton(
+        inputId = "delete", 
+        label = "Delete schedule",
+        class = "btn-danger"
+      )
+    )
   ),
   calendarOutput(outputId = "my_calendar")
 )
@@ -33,7 +54,7 @@ server <- function(input, output, session) {
       by = "1 day"
     ), 1)
     calendarProxy("my_calendar") %>% 
-      cal_proxy_schedule(
+      cal_proxy_create(
         id = input$add,
         calendarId = sample(c("a", "b", "c"), 1),
         title = paste("Schedule", input$add), 
@@ -45,6 +66,15 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$clear, cal_proxy_clear("my_calendar"))
+  
+  observe(updateActionButton(session, "delete", paste("Delete schedule", input$id)))
+  
+  observeEvent(input$delete, {
+    calendarProxy("my_calendar") %>% 
+      cal_proxy_delete(calendarId = "a", id = input$id) %>% # to be sure, we remove from all calendars
+      cal_proxy_delete(calendarId = "b", id = input$id) %>% 
+      cal_proxy_delete(calendarId = "c", id = input$id)
+  })
 
 }
 

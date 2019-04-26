@@ -218,9 +218,10 @@ cal_proxy_view <- function(proxy, view) {
 
 
 
-#' @title Add schedule with Proxy
+#' @title Create / Update / Delete schedule(s) with Proxy
 #' 
-#' @description This function allow to add schedule(s) into a calendar within the server in a Shiny application.
+#' @description These functions allow to create new schedule(s), update existing
+#'  ones and delete schedule in a calendar within the server in a Shiny application.
 #'
 #' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
 #' @param start The start time.
@@ -234,8 +235,10 @@ cal_proxy_view <- function(proxy, view) {
 #' @param .list A \code{list} with same information as above, useful with \code{input$<outputId>_add_schedule}.
 #'
 #' @export
+#' 
+#' @name proxy-schedule
 #'
-cal_proxy_schedule <- function(proxy, start = NULL, end = NULL, 
+cal_proxy_create <- function(proxy, start = NULL, end = NULL, 
                                title = NULL, body = NULL, id = NULL,
                                calendarId = NULL, category = NULL, ...,
                                .list = NULL) {
@@ -262,8 +265,53 @@ cal_proxy_schedule <- function(proxy, start = NULL, end = NULL,
   }
   .call_proxy(
     proxy = proxy,
-    name = "schedule",
+    name = "create",
     schedule = schedule
+  )
+}
+
+#' @rdname proxy-schedule
+#' @export
+cal_proxy_delete <- function(proxy, calendarId = NULL, id = NULL) {
+  if (is.character(proxy)) {
+    proxy <- calendarProxy(proxy)
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "delete",
+    calendarId = calendarId,
+    id = id
+  )
+}
+
+#' @rdname proxy-schedule
+#' @export
+cal_proxy_update <- function(proxy, calendarId = NULL, id = NULL,
+                             start = NULL, end = NULL, 
+                             title = NULL, body = NULL, 
+                             category = NULL, ...,
+                             .list = NULL) {
+  if (is.character(proxy)) {
+    proxy <- calendarProxy(proxy)
+  }
+  if (is.null(.list)) {
+    .list <- dropNulls(list(
+      id = id,
+      calendarId = calendarId,
+      title = title,
+      body = body,
+      start = start,
+      end = end,
+      category = category,
+      ...
+    ))
+  }
+  .call_proxy(
+    proxy = proxy,
+    name = "update",
+    calendarId = calendarId,
+    id = id,
+    schedule = .list
   )
 }
 

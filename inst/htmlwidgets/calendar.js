@@ -149,11 +149,25 @@ if (HTMLWidgets.shinyMode) {
         cal.changeView(obj.data.view, true);
       }
   });
-  Shiny.addCustomMessageHandler('proxy-tui-calendar-schedule',
+  Shiny.addCustomMessageHandler('proxy-tui-calendar-create',
     function(obj) {
       var cal = get_widget(obj.id);
       if (typeof cal != 'undefined') {
         cal.createSchedules(obj.data.schedule);
+      }
+  });
+  Shiny.addCustomMessageHandler('proxy-tui-calendar-delete',
+    function(obj) {
+      var cal = get_widget(obj.id);
+      if (typeof cal != 'undefined') {
+        cal.deleteSchedule(obj.data.id, obj.data.calendarId);
+      }
+  });
+  Shiny.addCustomMessageHandler('proxy-tui-calendar-update',
+    function(obj) {
+      var cal = get_widget(obj.id);
+      if (typeof cal != 'undefined') {
+        cal.updateSchedule(obj.data.id, obj.data.calendarId, obj.data.schedule);
       }
   });
   Shiny.addCustomMessageHandler('proxy-tui-calendar-clear',
