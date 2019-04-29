@@ -50,6 +50,6 @@ schedules <- data.frame(
 # Calendar ----------------------------------------------------------------
 
 calendar(defaultView = "month", taskView = TRUE, scheduleView = c("time", "allday")) %>% 
-  # setMonthOptions(visibleWeeksCount = 2) %>%
-  setCalendarsPropsDF(df = calendarProps) %>% 
-  addScheduleDF(df = schedules)
+  # set_month_options(visibleWeeksCount = 2) %>%
+  set_calendars_props_df(df = calendarProps) %>% 
+  add_schedule_df(df = schedules)

@@ -48,8 +48,8 @@ schedules <- data.frame(
 # Calendar ----------------------------------------------------------------
 
 calendar(defaultView = "day", taskView = TRUE, scheduleView = c("time", "allday")) %>% 
-  setCalendarsPropsDF(df = calendarProps) %>% 
-  addScheduleDF(df = schedules)
+  set_calendars_props_df(df = calendarProps) %>% 
+  add_schedule_df(df = schedules)
 
 
 

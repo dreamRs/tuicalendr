@@ -17,7 +17,7 @@
 #'
 #' @export
 #'
-setWeekOptions <- function(cal, startDayOfWeek = NULL, 
+set_week_options <- function(cal, startDayOfWeek = NULL, 
                            daynames = NULL, 
                            narrowWeekend = NULL, 
                            workweek = NULL, 
@@ -61,7 +61,7 @@ setWeekOptions <- function(cal, startDayOfWeek = NULL,
 #'
 #' @export
 #'
-setMonthOptions <- function(cal, startDayOfWeek = NULL, 
+set_month_options <- function(cal, startDayOfWeek = NULL, 
                            daynames = NULL, 
                            narrowWeekend = NULL, 
                            visibleWeeksCount = NULL,

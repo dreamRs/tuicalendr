@@ -10,8 +10,8 @@ cal_proxy_options(proxy, ...)
 \item{proxy}{A \code{\link{calendarProxy}} \code{htmlwidget} object.}
 
 \item{...}{Options for the calendar, you can use arguments from \code{\link{calendar}},
-\code{\link{setMonthOptions}} (under the form \code{month = list(...)}), 
-\code{\link{setWeekOptions}} (under the form \code{week = list(...)})}
+\code{\link{set_month_options}} (under the form \code{month = list(...)}), 
+\code{\link{set_week_options}} (under the form \code{week = list(...)})}
 }
 \description{
 This function allow to set options for a calendar.

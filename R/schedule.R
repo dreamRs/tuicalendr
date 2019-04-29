@@ -36,7 +36,7 @@
 #' 
 #' @name add-schedule
 #'
-addSchedule <- function(cal, start, end, title, body = NULL, id = NULL,
+add_schedule <- function(cal, start, end, title, body = NULL, id = NULL,
                         calendarId = NULL, category = NULL, ...) {
   .add_schedule(
     widget = cal,
@@ -59,7 +59,7 @@ addSchedule <- function(cal, start, end, title, body = NULL, id = NULL,
 #' @export
 #'
 #' @rdname add-schedule
-addScheduleDF <- function(cal, df) {
+add_schedule_df <- function(cal, df) {
   df <- as.data.frame(df)
   df <- apply(X = df, MARGIN = 1, FUN = as.list)
   for (i in seq_along(df)) {

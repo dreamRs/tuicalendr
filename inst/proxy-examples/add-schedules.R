@@ -42,9 +42,9 @@ server <- function(input, output, session) {
   
   output$my_calendar <- renderCalendar({
     calendar(defaultView = "month") %>% 
-      setCalendarsProps(id = "a", name = "Schedule A", color = "#FFF", bgColor = "#E41A1C") %>% 
-      setCalendarsProps(id = "b", name = "Schedule B", color = "#FFF", bgColor = "#377EB8") %>% 
-      setCalendarsProps(id = "c", name = "Schedule C", color = "#FFF", bgColor = "#4DAF4A")
+      set_calendars_props(id = "a", name = "Schedule A", color = "#FFF", bgColor = "#E41A1C") %>% 
+      set_calendars_props(id = "b", name = "Schedule B", color = "#FFF", bgColor = "#377EB8") %>% 
+      set_calendars_props(id = "c", name = "Schedule C", color = "#FFF", bgColor = "#4DAF4A")
   })
   
   observeEvent(input$add, {

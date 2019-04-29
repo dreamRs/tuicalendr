@@ -187,7 +187,7 @@ cal_proxy_date <- function(proxy, date) {
 #'     
 #'     output$my_calendar <- renderCalendar({
 #'       calendar(defaultView = "day", scheduleView = "allday") %>% 
-#'         addSchedule(
+#'         add_schedule(
 #'           title = "Today planning", 
 #'           start = Sys.Date(),
 #'           end = Sys.Date(),
@@ -343,8 +343,8 @@ cal_proxy_clear <- function(proxy, immediately = TRUE) {
 #'
 #' @param proxy A \code{\link{calendarProxy}} \code{htmlwidget} object.
 #' @param ... Options for the calendar, you can use arguments from \code{\link{calendar}},
-#'  \code{\link{setMonthOptions}} (under the form \code{month = list(...)}), 
-#'  \code{\link{setWeekOptions}} (under the form \code{week = list(...)})
+#'  \code{\link{set_month_options}} (under the form \code{month = list(...)}), 
+#'  \code{\link{set_week_options}} (under the form \code{week = list(...)})
 #'
 #' @export
 #'

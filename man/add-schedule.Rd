@@ -2,14 +2,14 @@
 % Please edit documentation in R/schedule.R
 \name{add-schedule}
 \alias{add-schedule}
-\alias{addSchedule}
-\alias{addScheduleDF}
+\alias{add_schedule}
+\alias{add_schedule_df}
 \title{Add schedules}
 \usage{
-addSchedule(cal, start, end, title, body = NULL, id = NULL,
+add_schedule(cal, start, end, title, body = NULL, id = NULL,
   calendarId = NULL, category = NULL, ...)
 
-addScheduleDF(cal, df)
+add_schedule_df(cal, df)
 }
 \arguments{
 \item{cal}{A \code{calendar} object.}

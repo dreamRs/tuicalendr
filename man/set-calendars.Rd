@@ -2,18 +2,18 @@
 % Please edit documentation in R/set-calendars.R
 \name{set-calendars}
 \alias{set-calendars}
-\alias{setCalendarsProps}
-\alias{setCalendarsPropsDF}
+\alias{set_calendars_props}
+\alias{set_calendars_props_df}
 \title{Calendars properties}
 \usage{
-setCalendarsProps(cal, id, name, color, bgColor, borderColor = bgColor)
+set_calendars_props(cal, id, name, color, bgColor, borderColor = bgColor)
 
-setCalendarsPropsDF(cal, df)
+set_calendars_props_df(cal, df)
 }
 \arguments{
 \item{cal}{A \code{calendar} object.}
 
-\item{id}{Id for the calendar, refer to \code{calendarId} in \code{\link{addSchedule}}}
+\item{id}{Id for the calendar, refer to \code{calendarId} in \code{\link{add_schedule}}}
 
 \item{name}{The calendar name.}
 

@@ -18,7 +18,7 @@ server <- function(input, output, session) {
   
   output$my_calendar <- renderCalendar({
     calendar(defaultView = "day", scheduleView = "allday") %>% 
-      addSchedule(
+      add_schedule(
         title = "Today planning", 
         start = Sys.Date(),
         end = Sys.Date(),
