@@ -1,0 +1,143 @@
+---
+title: "Starting with tuicalendr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{starting-with-tuicalendr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(tuicalendr)
+```
+
+
+## Create a calendar
+
+Create a new calendar with function `calendar`:
+
+```{r}
+calendar()
+```
+
+Default view is "week", you can also choose "day" or "month":
+
+```{r}
+calendar(defaultView = "month")
+```
+
+You can use some options to customize the calendar:
+
+```{r}
+calendar(defaultView = "month") %>% 
+  set_month_options(
+    startDayOfWeek = 1,
+    daynames = c("Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"),
+    narrowWeekend = TRUE
+  )
+```
+
+
+## Add schedules
+
+Add task and planning with `add_schedule`:
+
+```{r}
+calendar(defaultView = "day") %>% 
+  add_schedule(
+    title = "R - introduction", 
+    body = "What is R?",
+    start = sprintf("%s 08:00:00", Sys.Date()),
+    end = sprintf("%s 12:30:00", Sys.Date()),
+    category = "time"
+  ) %>% 
+  add_schedule(
+    title = "R - visualisation", 
+    body = "With ggplot2",
+    start = sprintf("%s 13:30:00", Sys.Date()),
+    end = sprintf("%s 18:00:00", Sys.Date()),
+    category = "time"
+  ) %>% 
+  add_schedule(
+    title = "Basile birthday", 
+    body = "Don't forget!",
+    start = Sys.Date(),
+    end = Sys.Date(),
+    category = "allday"
+  ) %>% 
+  add_schedule(
+    title = "Lunch", 
+    body = "With Fanny",
+    start = sprintf("%s 12:00:00", Sys.Date()),
+    end = sprintf("%s 14:00:00", Sys.Date()),
+    category = "time"
+  )
+```
+
+
+You can also use a `data.frame` containing schedules:
+
+```{r}
+my_schedules <- data.frame(
+  title = c("R - introduction", "R - visualisation",
+            "Basile birthday", "Lunch"), 
+  body = c("What is R?", "With ggplot2", "Don't forget!", "With Fanny"),
+  start = c(sprintf("%s 08:00:00", Sys.Date()), sprintf("%s 13:30:00", Sys.Date()),
+            format(Sys.Date()), sprintf("%s 12:00:00", Sys.Date())),
+  end = c(sprintf("%s 12:30:00", Sys.Date()), sprintf("%s 18:00:00", Sys.Date()), 
+          format(Sys.Date()), sprintf("%s 14:00:00", Sys.Date())),
+  category = c("time", "time", "allday", "time")
+)
+
+calendar(defaultView = "day") %>% 
+  add_schedule_df(my_schedules)
+```
+
+
+Define calendars properties to add color and group schedules into groups (you'll need to use a `calendarId` into your shedules):
+
+```{r}
+my_schedules$calendarId <- c("courses", "courses", "birthdays", "social")
+
+calendar(defaultView = "day") %>% 
+  set_calendars_props(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>%
+  set_calendars_props(id = "birthdays", name = "Birthdays", color = "#FFF", bgColor = "#377EB8") %>%
+  set_calendars_props(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>%
+  add_schedule_df(my_schedules)
+```
+
+
+
+A monthly calendar (with navigation buttons) : 
+
+```{r}
+my_schedules <- data.frame(
+  calendarId = c("courses", "courses", "birthdays", "social"),
+  title = c("R - introduction", "R - visualisation",
+            "Basile birthday", "Lunch"), 
+  body = c("What is R?", "With ggplot2", "Don't forget!", "With Fanny"),
+  start = c(sprintf("%s 08:00:00", Sys.Date() - 3), sprintf("%s 13:30:00", Sys.Date() + 1),
+            format(Sys.Date() - 7), sprintf("%s 12:00:00", Sys.Date() + 7)),
+  end = c(sprintf("%s 12:30:00", Sys.Date()), sprintf("%s 18:00:00", Sys.Date() + 6), 
+          format(Sys.Date() - 7), sprintf("%s 14:00:00", Sys.Date() + 7)),
+  category = c("allday", "allday", "allday", "time")
+)
+
+calendar(defaultView = "month", useNav = TRUE) %>% 
+  set_calendars_props(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>%
+  set_calendars_props(id = "birthdays", name = "Birthdays", color = "#FFF", bgColor = "#377EB8") %>%
+  set_calendars_props(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>%
+  add_schedule_df(my_schedules)
+```
+
+
+<br>
+<br>
+<br>

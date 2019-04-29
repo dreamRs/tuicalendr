@@ -18,3 +18,6 @@ Imports:
     rmarkdown,
     shiny,
     magrittr
+Suggests: 
+    knitr
+VignetteBuilder: knitr

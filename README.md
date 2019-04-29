@@ -23,10 +23,10 @@ Weekly calendar:
 ``` r
 library(tuicalendr)
 calendar(defaultView = "week", taskView = TRUE, scheduleView = c("time", "allday")) %>% 
-  setCalendarsProps(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>% 
-  setCalendarsProps(id = "hobbies", name = "Hobbies", color = "#FFF", bgColor = "#377EB8") %>% 
-  setCalendarsProps(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>% 
-  addSchedule(
+  set_calendars_props(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>% 
+  set_calendars_props(id = "hobbies", name = "Hobbies", color = "#FFF", bgColor = "#377EB8") %>% 
+  set_calendars_props(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>% 
+  add_schedule(
     calendarId = "courses",
     title = "R - introduction", 
     body = "What is R?",
@@ -34,7 +34,7 @@ calendar(defaultView = "week", taskView = TRUE, scheduleView = c("time", "allday
     end = sprintf("%s 12:30:00", Sys.Date() - 1),
     category = "time"
   ) %>% 
-  addSchedule(
+  add_schedule(
     calendarId = "courses",
     title = "R - visualisation", 
     body = "With ggplot2",
@@ -42,7 +42,7 @@ calendar(defaultView = "week", taskView = TRUE, scheduleView = c("time", "allday
     end = sprintf("%s 18:00:00", Sys.Date() - 1),
     category = "time"
   ) %>% 
-  addSchedule(
+  add_schedule(
     calendarId = "hobbies",
     title = "Read The Expanse", 
     body = "Vol. 5 : Nemesis Games",
@@ -50,7 +50,7 @@ calendar(defaultView = "week", taskView = TRUE, scheduleView = c("time", "allday
     end = Sys.Date(),
     category = "allday"
   ) %>% 
-  addSchedule(
+  add_schedule(
     calendarId = "social",
     title = "Lunch", 
     body = "With Fanny",
@@ -66,10 +66,10 @@ Month calendar:
 
 ```r
 calendar(defaultView = "month", taskView = TRUE, scheduleView = c("time", "allday"), useNav = TRUE) %>% 
-  setCalendarsProps(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>% 
-  setCalendarsProps(id = "hobbies", name = "Hobbies", color = "#FFF", bgColor = "#377EB8") %>% 
-  setCalendarsProps(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>% 
-  addSchedule(
+  set_calendars_props(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>% 
+  set_calendars_props(id = "hobbies", name = "Hobbies", color = "#FFF", bgColor = "#377EB8") %>% 
+  set_calendars_props(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>% 
+  add_schedule(
     calendarId = "courses",
     title = "R - introduction", 
     body = "What is R?",
@@ -77,7 +77,7 @@ calendar(defaultView = "month", taskView = TRUE, scheduleView = c("time", "allda
     end = sprintf("%s 12:30:00", Sys.Date() - 1),
     category = "time"
   ) %>% 
-  addSchedule(
+  add_schedule(
     calendarId = "courses",
     title = "R - visualisation", 
     body = "With ggplot2",
@@ -85,7 +85,7 @@ calendar(defaultView = "month", taskView = TRUE, scheduleView = c("time", "allda
     end = sprintf("%s 18:00:00", Sys.Date() - 1),
     category = "time"
   ) %>% 
-  addSchedule(
+  add_schedule(
     calendarId = "hobbies",
     title = "Read The Expanse", 
     body = "Vol. 5 : Nemesis Games",
@@ -93,7 +93,7 @@ calendar(defaultView = "month", taskView = TRUE, scheduleView = c("time", "allda
     end = Sys.Date() + 4,
     category = "allday"
   ) %>% 
-  addSchedule(
+  add_schedule(
     calendarId = "social",
     title = "Lunch", 
     body = "With Fanny",
