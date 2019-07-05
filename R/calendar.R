@@ -4,6 +4,7 @@
 #'
 #' @param defaultView Default view of calendar. The default value is 'week',
 #'  other possible values are 'month' and 'day'.
+#' @param defaultDate Default date for displaying calendar.
 #' @param taskView Show the milestone and task in weekly, daily view.
 #'  The default value is true. If the value is a vector, it can be 'milestone', 'task'.
 #' @param scheduleView Show the all day and time grid in weekly, daily view.
@@ -22,6 +23,7 @@
 #'
 #' @export
 calendar <- function(defaultView = c("week", "month", "day"), 
+                     defaultDate = NULL,
                      taskView = FALSE,
                      scheduleView = TRUE,
                      useDetailPopup = TRUE,
@@ -32,7 +34,7 @@ calendar <- function(defaultView = c("week", "month", "day"),
                      width = NULL, height = NULL, elementId = NULL) {
 
   # forward options using x
-  x = list(
+  x = dropNulls(list(
     options = list(
       defaultView = match.arg(defaultView),
       taskView = taskView,
@@ -43,8 +45,9 @@ calendar <- function(defaultView = c("week", "month", "day"),
       usageStatistics = usageStatistics
     ),
     schedules = list(),
-    useNav = isTRUE(useNav)
-  )
+    useNav = isTRUE(useNav),
+    defaultDate = defaultDate
+  ))
   
   dependencies <- NULL
   if (isTRUE(useNav)) {

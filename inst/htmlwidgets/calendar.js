@@ -24,6 +24,9 @@ HTMLWidgets.widget({
         cal = new Calendar(el, options);
         var schd = x.schedules;
         cal.createSchedules(schd);
+        if (x.hasOwnProperty("defaultDate")) {
+          cal.setDate(x.defaultDate);
+        }
         
         // nav
         if (x.useNav) {
