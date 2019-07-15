@@ -16,7 +16,14 @@ HTMLWidgets.widget({
         var menu = document.getElementById(el.id + "_menu");
         
         if (!x.useNav) {
-          menu.parentNode.removeChild(menu);
+          if (menu !== null) {
+            menu.parentNode.removeChild(menu);
+          }
+        }
+        
+        if (typeof cal !== "undefined") {
+          cal.destroy();
+          el.innerHTML = "";
         }
         
         var options = x.options;
