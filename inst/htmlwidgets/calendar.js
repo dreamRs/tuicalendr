@@ -82,6 +82,12 @@ HTMLWidgets.widget({
               var element = cal.getSchedule(schedule.id, schedule.calendarId);
               Shiny.setInputValue(el.id + '_schedules', element);
           });
+          cal.on('clickSchedule', function(event) {
+              //var shedule = cal.getSchedule();
+              var schedule = event.schedule;
+              var element = cal.getSchedule(schedule.id, schedule.calendarId);
+              Shiny.setInputValue(el.id + '_schedule_click', element);
+          });
         }
         
 
