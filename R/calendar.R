@@ -46,7 +46,8 @@ calendar <- function(defaultView = c("week", "month", "day"),
     ),
     schedules = list(),
     useNav = isTRUE(useNav),
-    defaultDate = defaultDate
+    defaultDate = defaultDate,
+    events = list()
   ))
   
   dependencies <- NULL

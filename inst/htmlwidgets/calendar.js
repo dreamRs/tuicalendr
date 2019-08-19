@@ -64,30 +64,66 @@ HTMLWidgets.widget({
             start: moment(cal.getDateRangeStart()._date).format(),
             end: moment(cal.getDateRangeEnd()._date).format()
           });
-          cal.on('beforeCreateSchedule', function(event) {
-            console.log(event);
-            Shiny.setInputValue(el.id + '_add_schedule', {
-              title: event.title,
-              location: event.location,
-              start: moment(event.start._date).format(),
-              end: moment(event.end._date).format(),
-              isAllDay: event.isAllDay,
-              category: event.isAllDay ? 'allday' : 'time',
-              calendarId: event.calendarId,
+          
+          if (x.events.hasOwnProperty('beforeCreateSchedule')) {
+            cal.on('beforeCreateSchedule', x.events.beforeCreateSchedule);
+          } else {
+            cal.on('beforeCreateSchedule', function(event) {
+              //console.log(event);
+              Shiny.setInputValue(el.id + '_add_schedule', {
+                title: event.title,
+                location: event.location,
+                start: moment(event.start._date).format(),
+                end: moment(event.end._date).format(),
+                isAllDay: event.isAllDay,
+                category: event.isAllDay ? 'allday' : 'time',
+                calendarId: event.calendarId,
+              });
             });
-          });
-          cal.on('afterRenderSchedule', function(event) {
+          }
+          
+          if (x.events.hasOwnProperty('afterRenderSchedule')) {
+            cal.on('afterRenderSchedule', x.events.afterRenderSchedule);
+          } else {
+            cal.on('afterRenderSchedule', function(event) {
               //var shedule = cal.getSchedule();
               var schedule = event.schedule;
               var element = cal.getSchedule(schedule.id, schedule.calendarId);
               Shiny.setInputValue(el.id + '_schedules', element);
-          });
-          cal.on('clickSchedule', function(event) {
+            });
+          }
+          
+          if (x.events.hasOwnProperty('clickSchedule')) {
+            cal.on('clickSchedule', x.events.clickSchedule);
+          } else {
+            cal.on('clickSchedule', function(event) {
               //var shedule = cal.getSchedule();
               var schedule = event.schedule;
               var element = cal.getSchedule(schedule.id, schedule.calendarId);
               Shiny.setInputValue(el.id + '_schedule_click', element);
-          });
+            });
+          }
+
+          if (x.events.hasOwnProperty('beforeDeleteSchedule')) {
+            cal.on('beforeDeleteSchedule', x.events.beforeDeleteSchedule);
+          }
+          
+          if (x.events.hasOwnProperty('beforeUpdateSchedule')) {
+            cal.on('beforeUpdateSchedule', x.events.beforeUpdateSchedule);
+          }
+          
+          if (x.events.hasOwnProperty('clickDayname')) {
+            cal.on('clickDayname', x.events.clickDayname);
+          }
+          
+          if (x.events.hasOwnProperty('clickMorecalendar')) {
+            cal.on('clickMorecalendar', x.events.clickMorecalendar);
+          }
+          
+          if (x.events.hasOwnProperty('clickTimezonesCollapseBtncalendar')) {
+            cal.on('clickTimezonesCollapseBtncalendar', x.events.clickTimezonesCollapseBtncalendar);
+          }
+          
         }
         
 
