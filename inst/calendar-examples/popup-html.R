@@ -1,9 +1,9 @@
 
 #  ------------------------------------------------------------------------
 #
-# Title : Calendar examples : month view
+# Title : Calendar examples : HTML in popup
 #    By : Victor
-#  Date : 2019-04-23
+#  Date : 2019-10-06
 #
 #  ------------------------------------------------------------------------
 
@@ -12,7 +12,7 @@
 # Packages ----------------------------------------------------------------
 
 library(tuicalendr)
-
+library(htmltools)
 
 
 # Datas -------------------------------------------------------------------
@@ -37,7 +37,6 @@ schedules <- data.frame(
   id = 1:n, 
   calendarId = as.character(sample(1:3, n, TRUE)),
   title = LETTERS[1:n],
-  body = paste("Body schedule", letters[1:n]),
   start = format(date_start, format = "%Y-%m-%dT%H:%00:%00"),
   end = format(date_end, format = "%Y-%m-%dT%H:%00:%00"),
   category = sample(c("allday", "time", "task"), n, TRUE),
@@ -45,11 +44,35 @@ schedules <- data.frame(
 )
 
 
+make_body <- function(title) {
+  doRenderTags(tags$div(
+    tags$h3("Title for", title),
+    tags$p(
+      "Yan can write", tags$em("custom"), tags$b("HTML"),
+      "in a popup !"
+    ),
+    tags$p(
+      style = "color: firebrick;",
+      "For example write in red !"
+    ),
+    tags$ul(
+      tags$li("Or make a bullet list!"),
+      tags$li("With another item"),
+      tags$li("And one more")
+    )
+  ))
+}
+
+schedules$body <- unlist(lapply(schedules$title, make_body))
+
+
 
 
 # Calendar ----------------------------------------------------------------
 
 calendar(defaultView = "month", taskView = TRUE, scheduleView = c("time", "allday")) %>% 
-  # set_month_options(visibleWeeksCount = 2) %>%
   set_calendars_props_df(df = calendarProps) %>% 
   add_schedule_df(df = schedules)
+
+
+
