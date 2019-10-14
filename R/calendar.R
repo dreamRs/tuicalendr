@@ -60,9 +60,7 @@ calendar <- function(defaultView = c("week", "month", "day"),
     )
   }
 
-  # create widget
   htmlwidgets::createWidget(
-    # name = ifelse(isTRUE(useNav), "calendar_nav", "calendar"),
     name = "calendar",
     x = x,
     width = width,
