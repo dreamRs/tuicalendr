@@ -13,6 +13,7 @@
 #' @param useCreationPopup Logical. Allow user to create schedules with a pop-up.
 #' @param readOnly Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.
 #' @param useNav Add navigation buttons to got to previous or next period, or return to 'today'.
+#' @param bttnOpts Options tu customize buttons (only if \code{useNav = TRUE}), see \code{\link{bttn_options}}.
 #' @param usageStatistics Toast UI collect statistics on the use of open source via Google Analytics, 
 #'  set to \code{TRUE} to share your usage, default to \code{FALSE}.
 #' @param width A numeric input in pixels.
@@ -30,6 +31,7 @@ calendar <- function(defaultView = c("week", "month", "day"),
                      useCreationPopup = FALSE,
                      readOnly = TRUE, 
                      useNav = FALSE,
+                     bttnOpts = bttn_options(),
                      usageStatistics = FALSE,
                      width = NULL, height = NULL, elementId = NULL) {
 
@@ -47,7 +49,8 @@ calendar <- function(defaultView = c("week", "month", "day"),
     schedules = list(),
     useNav = isTRUE(useNav),
     defaultDate = defaultDate,
-    events = list()
+    events = list(),
+    bttnOpts = bttnOpts
   ))
   
   dependencies <- NULL
@@ -90,16 +93,20 @@ calendar_html <- function(id, style, class, ...) {
       tags$span(
         id = paste0(id, "_menu_navi"),
         tags$button(
-          type = "button", class = "btn bttn-jelly bttn-sm bttn-primary bttn-no-outline move-today", `data-action` = "move-today",
+          type = "button", 
+          class = "btn bttn-no-outline action-button", 
+          id = paste0(id, "_today"),
           "Today"
         ),
         tags$button(
-          type="button", class = "btn bttn-jelly bttn-sm bttn-primary bttn-no-outline move-day", `data-action` = "move-prev",
-          tags$i(class = "fa fa-chevron-left", `data-action` = "move-prev")
+          type="button", class = "btn bttn-no-outline action-button", 
+          id = paste0(id, "_prev"),
+          tags$i(class = "fa fa-chevron-left")
         ),
         tags$button(
-          type="button", class = "btn bttn-jelly bttn-sm bttn-primary bttn-no-outline move-day", `data-action` = "move-next",
-          tags$i(class = "fa fa-chevron-right", `data-action` = "move-next")
+          type="button", class = "btn bttn-no-outline action-button", 
+          id = paste0(id, "_next"),
+          tags$i(class = "fa fa-chevron-right")
         )
       ),
       tags$span(id = paste0(id, "_renderRange"), class = "render-range")

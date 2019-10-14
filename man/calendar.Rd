@@ -7,8 +7,8 @@
 calendar(defaultView = c("week", "month", "day"), defaultDate = NULL,
   taskView = FALSE, scheduleView = TRUE, useDetailPopup = TRUE,
   useCreationPopup = FALSE, readOnly = TRUE, useNav = FALSE,
-  usageStatistics = FALSE, width = NULL, height = NULL,
-  elementId = NULL)
+  bttnOpts = bttn_options(), usageStatistics = FALSE, width = NULL,
+  height = NULL, elementId = NULL)
 }
 \arguments{
 \item{defaultView}{Default view of calendar. The default value is 'week',
@@ -29,6 +29,8 @@ The default value is false. If the value is a vector, it can be 'allday', 'time'
 \item{readOnly}{Calendar is read-only mode and a user can't create and modify any schedule. The default value is true.}
 
 \item{useNav}{Add navigation buttons to got to previous or next period, or return to 'today'.}
+
+\item{bttnOpts}{Options tu customize buttons (only if \code{useNav = TRUE}), see \code{\link{bttn_options}}.}
 
 \item{usageStatistics}{Toast UI collect statistics on the use of open source via Google Analytics, 
 set to \code{TRUE} to share your usage, default to \code{FALSE}.}

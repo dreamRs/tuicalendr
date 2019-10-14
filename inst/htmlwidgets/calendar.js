@@ -39,21 +39,37 @@ HTMLWidgets.widget({
         if (x.useNav) {
           var renderRange = document.getElementById(el.id + "_renderRange");
           renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
-          var prev = menu.querySelectorAll("button[data-action='move-prev']");
-          prev[0].addEventListener("click", function(e) {
+          var prev = document.getElementById(el.id + "_prev");
+          prev.className += x.bttnOpts.class;
+          prev.innerHTML = x.bttnOpts.prev_label;
+          prev.addEventListener("click", function(e) {
             cal.prev();
             renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
           }, false);
-          var next = menu.querySelectorAll("button[data-action='move-next']");
-          next[0].addEventListener("click", function(e) {
+          var next = document.getElementById(el.id + "_next");
+          next.className += x.bttnOpts.class;
+          next.innerHTML = x.bttnOpts.next_label;
+          next.addEventListener("click", function(e) {
             cal.next();
             renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
           }, false);
-          var today = menu.querySelectorAll("button[data-action='move-today']");
-          today[0].addEventListener("click", function(e) {
+          var today = document.getElementById(el.id + "_today");
+          today.className += x.bttnOpts.class;
+          today.innerHTML = x.bttnOpts.today_label;
+          today.addEventListener("click", function(e) {
             cal.today();
             renderRange.innerHTML = dateToYMD(cal.getDateRangeStart()) + " - " + dateToYMD(cal.getDateRangeEnd());
           }, false);
+          if (x.bttnOpts.hasOwnProperty("bg")) {
+            prev.style.background = x.bttnOpts.bg;
+            next.style.background = x.bttnOpts.bg;
+            today.style.background = x.bttnOpts.bg;
+          }
+          if (x.bttnOpts.hasOwnProperty("color")) {
+            prev.style.color = x.bttnOpts.color;
+            next.style.color = x.bttnOpts.color;
+            today.style.color = x.bttnOpts.color;
+          }
         }
 
         
