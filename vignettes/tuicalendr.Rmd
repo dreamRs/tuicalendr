@@ -50,7 +50,7 @@ calendar(defaultView = "month") %>%
 Add task and planning with `add_schedule`:
 
 ```{r}
-calendar(defaultView = "day") %>% 
+calendar(defaultView = "day", defaultDate = Sys.Date()) %>% 
   add_schedule(
     title = "R - introduction", 
     body = "What is R?",
@@ -96,7 +96,7 @@ my_schedules <- data.frame(
   category = c("time", "time", "allday", "time")
 )
 
-calendar(defaultView = "day") %>% 
+calendar(defaultView = "day", defaultDate = Sys.Date()) %>% 
   add_schedule_df(my_schedules)
 ```
 
@@ -106,7 +106,7 @@ Define calendars properties to add color and group schedules into groups (you'll
 ```{r}
 my_schedules$calendarId <- c("courses", "courses", "birthdays", "social")
 
-calendar(defaultView = "day") %>% 
+calendar(defaultView = "day", defaultDate = Sys.Date()) %>% 
   set_calendars_props(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>%
   set_calendars_props(id = "birthdays", name = "Birthdays", color = "#FFF", bgColor = "#377EB8") %>%
   set_calendars_props(id = "social", name = "Social", color = "#FFF", bgColor = "#4DAF4A") %>%
