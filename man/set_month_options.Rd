@@ -4,10 +4,19 @@
 \alias{set_month_options}
 \title{Month Options}
 \usage{
-set_month_options(cal, startDayOfWeek = NULL, daynames = NULL,
-  narrowWeekend = NULL, visibleWeeksCount = NULL,
-  isAlways6Week = NULL, workweek = NULL, visibleScheduleCount = NULL,
-  moreLayerSize = NULL, grid = NULL, scheduleFilter = NULL)
+set_month_options(
+  cal,
+  startDayOfWeek = NULL,
+  daynames = NULL,
+  narrowWeekend = NULL,
+  visibleWeeksCount = NULL,
+  isAlways6Week = NULL,
+  workweek = NULL,
+  visibleScheduleCount = NULL,
+  moreLayerSize = NULL,
+  grid = NULL,
+  scheduleFilter = NULL
+)
 }
 \arguments{
 \item{cal}{A \code{calendar} object.}

@@ -4,10 +4,14 @@
 \alias{bttn_options}
 \title{Options for buttons displayed above calendar}
 \usage{
-bttn_options(today_label = "Today",
+bttn_options(
+  today_label = "Today",
   prev_label = htmltools::tags$i(class = "fa fa-chevron-left"),
   next_label = htmltools::tags$i(class = "fa fa-chevron-right"),
-  class = "bttn-jelly bttn-sm bttn-primary", bg = NULL, color = NULL)
+  class = "bttn-jelly bttn-sm bttn-primary",
+  bg = NULL,
+  color = NULL
+)
 }
 \arguments{
 \item{today_label}{Text to display on today button.}

@@ -7,15 +7,33 @@
 \alias{cal_proxy_update}
 \title{Create / Update / Delete schedule(s) with Proxy}
 \usage{
-cal_proxy_create(proxy, start = NULL, end = NULL, title = NULL,
-  body = NULL, id = NULL, calendarId = NULL, category = NULL, ...,
-  .list = NULL)
+cal_proxy_create(
+  proxy,
+  start = NULL,
+  end = NULL,
+  title = NULL,
+  body = NULL,
+  id = NULL,
+  calendarId = NULL,
+  category = NULL,
+  ...,
+  .list = NULL
+)
 
 cal_proxy_delete(proxy, calendarId = NULL, id = NULL)
 
-cal_proxy_update(proxy, calendarId = NULL, id = NULL, start = NULL,
-  end = NULL, title = NULL, body = NULL, category = NULL, ...,
-  .list = NULL)
+cal_proxy_update(
+  proxy,
+  calendarId = NULL,
+  id = NULL,
+  start = NULL,
+  end = NULL,
+  title = NULL,
+  body = NULL,
+  category = NULL,
+  ...,
+  .list = NULL
+)
 }
 \arguments{
 \item{proxy}{A \code{\link{calendarProxy}} \code{htmlwidget} object.}

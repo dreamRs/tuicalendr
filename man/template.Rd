@@ -6,8 +6,13 @@
 \alias{js_title}
 \title{Set template for a calendar}
 \usage{
-set_template(cal, milestoneTitle = NULL, taskTitle = NULL,
-  alldayTitle = NULL, ...)
+set_template(
+  cal,
+  milestoneTitle = NULL,
+  taskTitle = NULL,
+  alldayTitle = NULL,
+  ...
+)
 
 js_title(title)
 }

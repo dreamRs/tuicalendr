@@ -4,11 +4,17 @@
 \alias{set_events}
 \title{Set custom JavaScript events}
 \usage{
-set_events(cal, afterRenderSchedule = NULL,
-  beforeCreateSchedule = NULL, beforeDeleteSchedule = NULL,
-  beforeUpdateSchedule = NULL, clickDayname = NULL,
-  clickMorecalendar = NULL, clickSchedule = NULL,
-  clickTimezonesCollapseBtncalendar = NULL)
+set_events(
+  cal,
+  afterRenderSchedule = NULL,
+  beforeCreateSchedule = NULL,
+  beforeDeleteSchedule = NULL,
+  beforeUpdateSchedule = NULL,
+  clickDayname = NULL,
+  clickMorecalendar = NULL,
+  clickSchedule = NULL,
+  clickTimezonesCollapseBtncalendar = NULL
+)
 }
 \arguments{
 \item{cal}{A \code{calendar} htmlwidget object.}

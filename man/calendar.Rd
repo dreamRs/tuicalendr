@@ -4,11 +4,21 @@
 \alias{calendar}
 \title{Create an interactive calendar}
 \usage{
-calendar(defaultView = c("week", "month", "day"), defaultDate = NULL,
-  taskView = FALSE, scheduleView = TRUE, useDetailPopup = TRUE,
-  useCreationPopup = FALSE, readOnly = TRUE, useNav = FALSE,
-  bttnOpts = bttn_options(), usageStatistics = FALSE, width = NULL,
-  height = NULL, elementId = NULL)
+calendar(
+  defaultView = c("week", "month", "day"),
+  defaultDate = NULL,
+  taskView = FALSE,
+  scheduleView = TRUE,
+  useDetailPopup = TRUE,
+  useCreationPopup = FALSE,
+  readOnly = TRUE,
+  useNav = FALSE,
+  bttnOpts = bttn_options(),
+  usageStatistics = FALSE,
+  width = NULL,
+  height = NULL,
+  elementId = NULL
+)
 }
 \arguments{
 \item{defaultView}{Default view of calendar. The default value is 'week',

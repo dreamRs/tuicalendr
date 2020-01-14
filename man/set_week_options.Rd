@@ -4,10 +4,17 @@
 \alias{set_week_options}
 \title{Week Options}
 \usage{
-set_week_options(cal, startDayOfWeek = NULL, daynames = NULL,
-  narrowWeekend = NULL, workweek = NULL,
-  showTimezoneCollapseButton = NULL, timezonesCollapsed = NULL,
-  hourStart = NULL, hourEnd = NULL)
+set_week_options(
+  cal,
+  startDayOfWeek = NULL,
+  daynames = NULL,
+  narrowWeekend = NULL,
+  workweek = NULL,
+  showTimezoneCollapseButton = NULL,
+  timezonesCollapsed = NULL,
+  hourStart = NULL,
+  hourEnd = NULL
+)
 }
 \arguments{
 \item{cal}{A \code{calendar} object.}

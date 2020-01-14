@@ -6,8 +6,17 @@
 \alias{add_schedule_df}
 \title{Add schedules}
 \usage{
-add_schedule(cal, start, end, title, body = NULL, id = NULL,
-  calendarId = NULL, category = NULL, ...)
+add_schedule(
+  cal,
+  start,
+  end,
+  title,
+  body = NULL,
+  id = NULL,
+  calendarId = NULL,
+  category = NULL,
+  ...
+)
 
 add_schedule_df(cal, df)
 }
