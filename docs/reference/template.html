@@ -69,7 +69,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">tuicalendr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9100</span>
       </span>
     </div>
 
@@ -82,19 +82,10 @@
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="../articles/tuicalendr.html">Get started</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Articles
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="../articles/starting-with-tuicalendr.html">Starting with tuicalendr</a>
-    </li>
-  </ul>
+<li>
+  <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -126,8 +117,13 @@
     <p>Template JS functions to support customer renderer</p>
     </div>
 
-    <pre class="usage"><span class='fu'>set_template</span>(<span class='no'>cal</span>, <span class='kw'>milestoneTitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>taskTitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>alldayTitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>set_template</span>(
+  <span class='no'>cal</span>,
+  <span class='kw'>milestoneTitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>taskTitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>alldayTitle</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>
+)
 
 <span class='fu'>js_title</span>(<span class='no'>title</span>)</pre>
 
