@@ -14,7 +14,7 @@ dependencies:
     script: tui-date-picker.min.js
     stylesheet: tui-date-picker.css
   - name: tui-calendar
-    version: 1.12.5
+    version: 1.12.12
     src: htmlwidgets/assets
     script: tui-calendar.min.js
     stylesheet: tui-calendar.min.css
