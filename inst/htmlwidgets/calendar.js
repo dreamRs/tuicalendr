@@ -101,10 +101,9 @@ HTMLWidgets.widget({
             cal.on("afterRenderSchedule", x.events.afterRenderSchedule);
           } else {
             cal.on("afterRenderSchedule", function(event) {
-              //var shedule = cal.getSchedule();
               var schedule = event.schedule;
-              var element = cal.getSchedule(schedule.id, schedule.calendarId);
-              Shiny.setInputValue(el.id + "_schedules", element);
+              schedule = cal.getSchedule(schedule.id, schedule.calendarId);
+              Shiny.setInputValue(el.id + "_schedules", schedule);
             });
           }
 
@@ -112,10 +111,9 @@ HTMLWidgets.widget({
             cal.on("clickSchedule", x.events.clickSchedule);
           } else {
             cal.on("clickSchedule", function(event) {
-              //var shedule = cal.getSchedule();
               var schedule = event.schedule;
-              var element = cal.getSchedule(schedule.id, schedule.calendarId);
-              Shiny.setInputValue(el.id + "_schedule_click", element);
+              schedule = cal.getSchedule(schedule.id, schedule.calendarId);
+              Shiny.setInputValue(el.id + "_schedule_click", schedule);
             });
           }
 
@@ -125,6 +123,32 @@ HTMLWidgets.widget({
 
           if (x.events.hasOwnProperty("beforeUpdateSchedule")) {
             cal.on("beforeUpdateSchedule", x.events.beforeUpdateSchedule);
+          } else {
+            cal.on("beforeUpdateSchedule", function(event) {
+              var schedule = event.schedule;
+              schedule = cal.getSchedule(schedule.id, schedule.calendarId);
+              var changes = event.changes;
+              //cal.updateSchedule(schedule.id, schedule.calendarId, changes);
+              if (changes.hasOwnProperty("end")) {
+                changes.end = moment(changes.end._date).format();
+              }
+              if (changes.hasOwnProperty("start")) {
+                changes.start = moment(changes.start._date).format();
+              }
+              Shiny.setInputValue(el.id + "_schedule_update", {
+                schedule: {
+                  id: schedule.id,
+                  title: schedule.title,
+                  location: schedule.location,
+                  start: moment(schedule.start._date).format(),
+                  end: moment(schedule.end._date).format(),
+                  isAllDay: schedule.isAllDay,
+                  category: schedule.isAllDay ? "allday" : "time",
+                  calendarId: schedule.calendarId
+                },
+                changes: changes
+              });
+            });
           }
 
           if (x.events.hasOwnProperty("clickDayname")) {
