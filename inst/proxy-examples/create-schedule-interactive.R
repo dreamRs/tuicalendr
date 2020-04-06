@@ -19,15 +19,15 @@ server <- function(input, output, session) {
       set_calendars_props(id = "c", name = "Schedule C", color = "#FFF", bgColor = "#4DAF4A")
   })
   
-  observeEvent(input$my_calendar_add_schedule, {
+  observeEvent(input$my_calendar_add, {
     calendarProxy("my_calendar") %>%
       cal_proxy_create(
-        .list = input$my_calendar_add_schedule
+        .list = input$my_calendar_add
       )
   })
   
   output$created <- renderPrint({
-    input$my_calendar_add_schedule
+    input$my_calendar_add
   })
 
 }

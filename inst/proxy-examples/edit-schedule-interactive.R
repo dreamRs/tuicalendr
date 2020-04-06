@@ -37,11 +37,11 @@ server <- function(input, output) {
   })
   
   output$schedule_update <- renderUI({
-    if (!is.null(input$my_calendar_schedule_update)) {
-      changes <- input$my_calendar_schedule_update$changes
+    if (!is.null(input$my_calendar_update)) {
+      changes <- input$my_calendar_update$changes
       tags$div(
         "Schedule",
-        tags$b(input$my_calendar_schedule_update$schedule$id),
+        tags$b(input$my_calendar_update$schedule$id),
         "have been updated with:",
         tags$ul(
           lapply(
@@ -58,17 +58,17 @@ server <- function(input, output) {
     }
   })
   
-  observeEvent(input$my_calendar_add_schedule, {
+  observeEvent(input$my_calendar_add, {
     cal_proxy_create(
       proxy = "my_calendar",
-      .list = input$my_calendar_add_schedule
+      .list = input$my_calendar_add
     )
   })
   
-  observeEvent(input$my_calendar_schedule_update, {
+  observeEvent(input$my_calendar_update, {
     cal_proxy_update(
       proxy = "my_calendar",
-      .list = input$my_calendar_schedule_update
+      .list = input$my_calendar_update
     )
   })
   

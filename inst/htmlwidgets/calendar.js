@@ -85,7 +85,7 @@ HTMLWidgets.widget({
           } else {
             cal.on("beforeCreateSchedule", function(event) {
               //console.log(event);
-              Shiny.setInputValue(el.id + "_add_schedule", {
+              Shiny.setInputValue(el.id + "_add", {
                 title: event.title,
                 location: event.location,
                 start: moment(event.start._date).format(),
@@ -113,7 +113,7 @@ HTMLWidgets.widget({
             cal.on("clickSchedule", function(event) {
               var schedule = event.schedule;
               schedule = cal.getSchedule(schedule.id, schedule.calendarId);
-              Shiny.setInputValue(el.id + "_schedule_click", schedule);
+              Shiny.setInputValue(el.id + "_click", schedule);
             });
           }
 
@@ -135,7 +135,7 @@ HTMLWidgets.widget({
               if (changes.hasOwnProperty("start")) {
                 changes.start = moment(changes.start._date).format();
               }
-              Shiny.setInputValue(el.id + "_schedule_update", {
+              Shiny.setInputValue(el.id + "_update", {
                 schedule: {
                   id: schedule.id,
                   title: schedule.title,
