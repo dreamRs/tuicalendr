@@ -6,6 +6,7 @@ library(tuicalendr)
 ui <- fluidPage(
   tags$h2("Create schedule(s) into calendar"),
   calendarOutput(outputId = "my_calendar"),
+  tags$b("Last created schedule:"),
   verbatimTextOutput(outputId = "created")
 )
 
@@ -19,8 +20,8 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$my_calendar_add_schedule, {
-    calendarProxy("my_calendar") %>% 
-      cal_proxy_schedule(
+    calendarProxy("my_calendar") %>%
+      cal_proxy_create(
         .list = input$my_calendar_add_schedule
       )
   })
@@ -28,7 +29,7 @@ server <- function(input, output, session) {
   output$created <- renderPrint({
     input$my_calendar_add_schedule
   })
-  
+
 }
 
 shinyApp(ui, server)

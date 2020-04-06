@@ -239,9 +239,9 @@ cal_proxy_view <- function(proxy, view) {
 #' @name proxy-schedule
 #'
 cal_proxy_create <- function(proxy, start = NULL, end = NULL, 
-                               title = NULL, body = NULL, id = NULL,
-                               calendarId = NULL, category = NULL, ...,
-                               .list = NULL) {
+                             title = NULL, body = NULL, id = NULL,
+                             calendarId = NULL, category = NULL, ...,
+                             .list = NULL) {
   if (is.character(proxy)) {
     proxy <- calendarProxy(proxy)
   }
