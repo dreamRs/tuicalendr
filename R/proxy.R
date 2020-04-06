@@ -294,6 +294,11 @@ cal_proxy_update <- function(proxy, calendarId = NULL, id = NULL,
   if (is.character(proxy)) {
     proxy <- calendarProxy(proxy)
   }
+  if (!is.null(.list$changes) & !is.null(.list$schedule)) {
+    calendarId <- .list$schedule$calendarId
+    id <- .list$schedule$id
+    .list <- .list$changes
+  }
   if (is.null(.list)) {
     .list <- dropNulls(list(
       id = id,
