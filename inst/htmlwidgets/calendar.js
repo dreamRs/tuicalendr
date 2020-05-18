@@ -119,6 +119,21 @@ HTMLWidgets.widget({
 
           if (x.events.hasOwnProperty("beforeDeleteSchedule")) {
             cal.on("beforeDeleteSchedule", x.events.beforeDeleteSchedule);
+          } else {
+            cal.on("beforeDeleteSchedule", function(event) {
+              var schedule = event.schedule;
+              schedule = cal.getSchedule(schedule.id, schedule.calendarId);
+              Shiny.setInputValue(el.id + "_delete", {
+                id: schedule.id,
+                title: schedule.title,
+                location: schedule.location,
+                start: moment(schedule.start._date).format(),
+                end: moment(schedule.end._date).format(),
+                isAllDay: schedule.isAllDay,
+                category: schedule.isAllDay ? "allday" : "time",
+                calendarId: schedule.calendarId
+              });
+            });
           }
 
           if (x.events.hasOwnProperty("beforeUpdateSchedule")) {

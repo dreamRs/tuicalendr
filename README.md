@@ -2,25 +2,26 @@
 
 > Htmlwidget to create interactive calendar with JavaScript library [tui-calendar](https://github.com/nhn/tui.calendar)
 
+<!-- badges: start -->
 [![Travis build status](https://travis-ci.org/dreamRs/tuicalendr.svg?branch=master)](https://travis-ci.org/dreamRs/tuicalendr)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-
+<!-- badges: end -->
 
 
 ## Installation
 
 You can install from GitHub with:
 
-``` r
+```r
 remotes::install_github("dreamRs/tuicalendr")
 ```
 
-## Example
+## Examples
 
 Weekly calendar:
 
-``` r
+```r
 library(tuicalendr)
 calendar(defaultView = "week", taskView = TRUE, scheduleView = c("time", "allday")) %>% 
   set_calendars_props(id = "courses", name = "Courses", color = "#FFF", bgColor = "#E41A1C") %>% 

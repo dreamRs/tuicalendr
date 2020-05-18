@@ -2,11 +2,25 @@
 % Please edit documentation in R/proxy.R
 \name{proxy-schedule}
 \alias{proxy-schedule}
+\alias{cal_proxy_add}
 \alias{cal_proxy_create}
 \alias{cal_proxy_delete}
 \alias{cal_proxy_update}
 \title{Create / Update / Delete schedule(s) with Proxy}
 \usage{
+cal_proxy_add(
+  proxy,
+  start = NULL,
+  end = NULL,
+  title = NULL,
+  body = NULL,
+  id = NULL,
+  calendarId = NULL,
+  category = NULL,
+  ...,
+  .list = NULL
+)
+
 cal_proxy_create(
   proxy,
   start = NULL,
@@ -20,7 +34,7 @@ cal_proxy_create(
   .list = NULL
 )
 
-cal_proxy_delete(proxy, calendarId = NULL, id = NULL)
+cal_proxy_delete(proxy, calendarId = NULL, id = NULL, .list = NULL)
 
 cal_proxy_update(
   proxy,
@@ -54,7 +68,8 @@ cal_proxy_update(
 
 \item{...}{Additionnal arguments passed to the JavaScript method.}
 
-\item{.list}{A \code{list} with same information as above, useful with \code{input$<outputId>_add_schedule}.}
+\item{.list}{A \code{list} with same information as above, useful
+with \code{input$<outputId>_<add/update/delete>_schedule}.}
 }
 \description{
 These functions allow to create new schedule(s), update existing

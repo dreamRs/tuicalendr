@@ -1,9 +1,9 @@
 Package: tuicalendr
 Title: Create Interactive Calendar with the JavaScript 'tui-calendar' Library
-Version: 0.0.1.9300
+Version: 0.0.1.9400
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
-  person("Fanny", "Meyer", email = "fanny.meyer@dreamrs.fr", role = c("aut")),
+  person("Fanny", "Meyer", role = c("aut")),
   person("NHN FE Development Lab", role = c("cph"), comment = "tui-calendar.js library"))
 Description: Htmlwidget for creating interactive calendar.
 License: MIT + file LICENSE

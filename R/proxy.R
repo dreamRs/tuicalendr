@@ -232,16 +232,17 @@ cal_proxy_view <- function(proxy, view) {
 #' @param calendarId An id for the calendar.
 #' @param category The schedule type ('milestone', 'task', allday', 'time').
 #' @param ... Additionnal arguments passed to the JavaScript method.
-#' @param .list A \code{list} with same information as above, useful with \code{input$<outputId>_add_schedule}.
+#' @param .list A \code{list} with same information as above, useful
+#'  with \code{input$<outputId>_<add/update/delete>_schedule}.
 #'
 #' @export
 #' 
 #' @name proxy-schedule
 #'
-cal_proxy_create <- function(proxy, start = NULL, end = NULL, 
-                             title = NULL, body = NULL, id = NULL,
-                             calendarId = NULL, category = NULL, ...,
-                             .list = NULL) {
+cal_proxy_add <- function(proxy, start = NULL, end = NULL, 
+                          title = NULL, body = NULL, id = NULL,
+                          calendarId = NULL, category = NULL, ...,
+                          .list = NULL) {
   if (is.character(proxy)) {
     proxy <- calendarProxy(proxy)
   }
@@ -272,15 +273,36 @@ cal_proxy_create <- function(proxy, start = NULL, end = NULL,
 
 #' @rdname proxy-schedule
 #' @export
-cal_proxy_delete <- function(proxy, calendarId = NULL, id = NULL) {
+cal_proxy_create <- function(proxy, start = NULL, end = NULL, 
+                             title = NULL, body = NULL, id = NULL,
+                             calendarId = NULL, category = NULL, ...,
+                             .list = NULL) {
+  warning("cal_proxy_create: This function is deprecated, please use cal_proxy_add() instead.", call. = FALSE)
+  cal_proxy_add(
+    proxy, start = start, end = end, 
+    title = title, body = body, id = id,
+    calendarId = calendarId, category = category, ...,
+    .list = .list
+  )
+}
+
+#' @rdname proxy-schedule
+#' @export
+cal_proxy_delete <- function(proxy, calendarId = NULL, id = NULL, .list = NULL) {
   if (is.character(proxy)) {
     proxy <- calendarProxy(proxy)
   }
+  if (is.null(.list))
+    .list <- list()
+  if (!is.null(calendarId))
+    .list$calendarId <- calendarId
+  if (!is.null(id))
+    .list$id <- id
   .call_proxy(
     proxy = proxy,
     name = "delete",
-    calendarId = calendarId,
-    id = id
+    calendarId = .list$calendarId,
+    id = .list$id
   )
 }
 
