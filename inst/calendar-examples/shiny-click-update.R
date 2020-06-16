@@ -56,7 +56,7 @@ server <- function(input, output, session) {
   })
   
   output$click <- renderPrint({
-    input$cal_schedule_click
+    input$cal_click
   })
   
 }
