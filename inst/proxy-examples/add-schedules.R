@@ -54,7 +54,7 @@ server <- function(input, output, session) {
       by = "1 day"
     ), 1)
     calendarProxy("my_calendar") %>% 
-      cal_proxy_create(
+      cal_proxy_add(
         id = input$add,
         calendarId = sample(c("a", "b", "c"), 1),
         title = paste("Schedule", input$add), 

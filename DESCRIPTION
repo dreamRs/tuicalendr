@@ -1,6 +1,6 @@
 Package: tuicalendr
 Title: Create Interactive Calendar with the JavaScript 'tui-calendar' Library
-Version: 0.0.1.9400
+Version: 0.0.1.9500
 Authors@R: c(
   person("Victor", "Perrier", email = "victor.perrier@dreamrs.fr", role = c("aut", "cre")),
   person("Fanny", "Meyer", role = c("aut")),
