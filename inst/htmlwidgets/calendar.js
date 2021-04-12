@@ -194,6 +194,11 @@ HTMLWidgets.widget({
             dateToYMD(cal.getDateRangeStart()) +
             " - " +
             dateToYMD(cal.getDateRangeEnd());
+          Shiny.setInputValue(el.id + "_dates", {
+            current: moment(cal.getDate()._date).format(),
+            start: moment(cal.getDateRangeStart()._date).format(),
+            end: moment(cal.getDateRangeEnd()._date).format()
+          });
         }
       },
 
@@ -204,6 +209,11 @@ HTMLWidgets.widget({
             dateToYMD(cal.getDateRangeStart()) +
             " - " +
             dateToYMD(cal.getDateRangeEnd());
+          Shiny.setInputValue(el.id + "_dates", {
+            current: moment(cal.getDate()._date).format(),
+            start: moment(cal.getDateRangeStart()._date).format(),
+            end: moment(cal.getDateRangeEnd()._date).format()
+          });
         }
       },
 
@@ -214,6 +224,11 @@ HTMLWidgets.widget({
             dateToYMD(cal.getDateRangeStart()) +
             " - " +
             dateToYMD(cal.getDateRangeEnd());
+          Shiny.setInputValue(el.id + "_dates", {
+            current: moment(cal.getDate()._date).format(),
+            start: moment(cal.getDateRangeStart()._date).format(),
+            end: moment(cal.getDateRangeEnd()._date).format()
+          });
         }
       },
 
