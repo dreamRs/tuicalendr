@@ -3,11 +3,16 @@
 > Htmlwidget to create interactive calendar with JavaScript library [tui-calendar](https://github.com/nhn/tui.calendar)
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Travis build status](https://travis-ci.org/dreamRs/tuicalendr.svg?branch=master)](https://travis-ci.org/dreamRs/tuicalendr)
 [![R build status](https://github.com/dreamRs/tuicalendr/workflows/R-CMD-check/badge.svg)](https://github.com/dreamRs/tuicalendr/actions)
+[![Lifecycle: superseded](https://img.shields.io/badge/lifecycle-superseded-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html#superseded)
+[![Project Status: Moved to https://github.com/dreamRs/toastui – The project has been moved to a new location, and the version at that location should be considered authoritative.](https://www.repostatus.org/badges/latest/moved.svg)](https://www.repostatus.org/#moved) to [dreamRs/toastui](https://github.com/dreamRs/toastui)
 <!-- badges: end -->
+
+
+# New version
+
+New version of this package is available at https://github.com/dreamRs/toastui
 
 
 ## Installation
