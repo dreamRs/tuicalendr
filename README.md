@@ -12,9 +12,11 @@
 
 # New version
 
-:warning: :warning: :warning: :warning: :warning: :warning: :warning:
+:warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning:
+
 New version of this package is available at https://github.com/dreamRs/toastui
-:warning: :warning: :warning: :warning: :warning: :warning: :warning:
+
+:warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning: :warning:
 
 
 # Old version
